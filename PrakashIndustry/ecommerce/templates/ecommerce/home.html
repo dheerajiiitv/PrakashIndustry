@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+{%   if user.is_authenticated %}
+    {% if user.is_admin %}
+        <h1>You are admin</h1>
+        {% else %}
+        <h1>You are not admin</h1>
+        {% endif %}
+    <h1>You are looged in</h1>
+    <a href="{% url 'ecommerce:logout' %}">Logout</a>
+{% else %}
+    <h1>Please Login</h1>
+    <a href="{% url 'ecommerce:login' %}">Login</a>
+    <a href="{% url 'ecommerce:register' %}">Register</a>
+{% endif %}
+
+
+</body>
+</html>
