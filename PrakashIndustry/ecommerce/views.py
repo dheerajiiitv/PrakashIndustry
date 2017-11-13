@@ -7,7 +7,7 @@ from django.urls import reverse,reverse_lazy
 from django.contrib.auth import authenticate,login,logout
 
 from django.contrib.auth.decorators import login_required
-
+from django.views.generic import CreateView,UpdateView,ListView,DetailView
 def home(request):
     return render(request,'ecommerce/index.html')
 def signup(request):
@@ -37,10 +37,38 @@ class Logout(LogoutView):
     next_page = reverse_lazy('ecommerce:home')
     # form_class = < class 'django.contrib.auth.forms.AuthenticationForm'>
 
+#for adding subscribed user to database
+from admin_interface.models import SubscribedUsers
+from ecommerce.models import MyUser
+from django.shortcuts import reverse
+from .forms import AddSubscribedUserForm
+class AddSubscriptionUser(CreateView):
+    template_name = 'ecommerce/index.html'
+    form_class = AddSubscribedUserForm
+
+    def get_success_url(self,form):
+        return render(self.request, 'ecommerce/successful_register.html', {'message': 'Succesfully subscribed'})
+
+    def form_valid(self, form):
+        """
+        If the form is valid, save the associated model.
+        """
+        self.object = form.save(commit=False)
+        already_exists = MyUser.objects.filter(email__exact=self.object.email)
+        if already_exists:
+            return render(self.request, 'ecommerce/index.html', {'message': 'You are a Register User'})
+        else:
+            already_subscribed = SubscribedUsers.objects.filter(email__exact=self.object.email)
+            if already_subscribed:
+                return render(self.request, 'ecommerce/index.html',
+                              {'message': 'You are already subscribed to our website'})
+
+            else:
+                form.save()
 
 
 
-
+        return self.get_success_url(form)
 
 
 

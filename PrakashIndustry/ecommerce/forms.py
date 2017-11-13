@@ -65,3 +65,12 @@ class UserChangeForm(forms.ModelForm):
     #             raise forms.ValidationError("Invalid")
     #     self.cleaned_data["user_obj"] = user_exits
     #     return super(UserLoginForm,self).clean()
+from admin_interface.models import SubscribedUsers
+class AddSubscribedUserForm(forms.ModelForm):
+    email = forms.EmailField(widget=forms.TextInput(attrs={'class':'input-email'}))
+
+    class Meta:
+        model = SubscribedUsers
+        fields = ('__all__')
+
+
