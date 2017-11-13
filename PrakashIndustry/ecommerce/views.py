@@ -9,7 +9,7 @@ from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 
 def home(request):
-    return render(request,'ecommerce/home.html')
+    return render(request,'ecommerce/index.html')
 def signup(request):
     is_register = False;
     form1 = UserCreationForm(request.POST or None)

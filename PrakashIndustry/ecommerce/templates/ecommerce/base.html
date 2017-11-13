@@ -1,10 +1,105 @@
-<!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+	<title>Prakash Industries</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="{% static 'ecommerce/css/owl.carousel.min.css' %}">
+<link rel="stylesheet" href="{% static 'ecommerce/css/owl.theme.default.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'ecommerce/css/animate.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'ecommerce/css/main.css' %}">
+	<script src="{% static 'ecommerce/js/wow.js' %}"></script>
+<script type="text/javascript">
+new WOW().init();
+</script>
 </head>
 <body>
 
+<input type="checkbox" id="navcheck" role="button" title="menu">
+<label for="navcheck" aria-hidden="true" title="menu">
+	<span class="burger">
+		<span class="bar">
+			<span class="visuallyhidden">Menu</span>
+		</span>
+	</span>
+</label>
+<nav id="menu">
+	<a href="index.html">Home</a>
+	<a href="about.html">About Us</a>
+	<a href="feature.html">Feature Product</a>
+	<a href="shop.html">Shop</a>
+	<a href="contact.html">Contact Us</a>
+
+</nav>
+
+{% block body_block %}
+{% endblock %}
+
+
+
+<!-- footer -->
+ <section id="Query">
+  	<div class="container-fluid">
+  		<div class="row">
+  			<div class="col-lg-12 col-md-12 col-xs-12">
+  				<h1 class="text-center about-heading">
+					<span style="color: #fff;">Leave Us A Message!</span>
+					<hr>
+				</h1>
+  			</div>
+  			<div class="col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 col-xs-12" style="margin: 0 auto;">
+  				<div class="form-area">
+        <form role="form">
+        <br style="clear:both">
+
+    				<div class="form-group">
+						<input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="mobile" name="mobile" placeholder="Mobile Number" required>
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
+					</div>
+                    <div class="form-group">
+                    <textarea class="form-control" type="textarea" id="message" placeholder="Message" maxlength="140" rows="7"></textarea>
+
+                    </div>
+
+        <button type="button" id="submit" name="submit" class="btn btn-primary querybutton">Submit Form</button>
+        </form>
+    </div>
+  			</div>
+  		</div>
+  	</div>
+  </section>
+  <section id="footer">
+  	<div class="container-fluid">
+  		<div class="row">
+  			<div class="col-md-12 col-lg-12 ">
+  				<h4 class="text-center" style="color: brown;">Prakash Industries</h4>
+  				<p class="text-center" style="color: brown;">
+  				<img src="{% static 'ecommerce/image/facebook.png' %}">
+  				<img src="{% static 'ecommerce/image/twitter.png' %}">
+  				<img src="{% static 'ecommerce/image/instagram.png' %}">
+  			</p>
+  			<p class="text-center" style="color:brown;">
+  				IIIT Vadodara@2017. Privacy Policy
+  			</p>
+  			</div>
+  		</div>
+  	</div>
+  </section>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="{% static 'ecommerce/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'ecommerce/js/jquer.js' %}"></script>
+<script src="{% static 'ecommerce/js/jquery.min.js' %}"></script>
+ <script src="{% static 'ecommerce/js/bootstrap.bundle.min.js' %}"></script>
 </body>
 </html>
