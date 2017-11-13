@@ -42,6 +42,7 @@ from admin_interface.models import SubscribedUsers
 from ecommerce.models import MyUser
 from django.shortcuts import reverse
 from .forms import AddSubscribedUserForm
+from django.core.mail import send_mail,EmailMultiAlternatives
 class AddSubscriptionUser(CreateView):
     template_name = 'ecommerce/index.html'
     form_class = AddSubscribedUserForm
@@ -65,8 +66,12 @@ class AddSubscriptionUser(CreateView):
 
             else:
                 form.save()
-
-
+                send_mail(
+                'Successfully Subscribed',
+                'Thank you for joining us',
+                'dheeraja123456@gmail.com',
+                [self.object.email],
+                )
 
         return self.get_success_url(form)
 

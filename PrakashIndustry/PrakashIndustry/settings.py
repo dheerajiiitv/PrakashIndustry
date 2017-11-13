@@ -26,7 +26,11 @@ SECRET_KEY = 'bdfrju=6x%_p6979j=c83#1)tqari3u+3tu58y-)-=&#*=nthh'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'dheeraja123456@gmail.com'
+EMAIL_HOST_PASSWORD = '2551997may'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 # Application definition
 
