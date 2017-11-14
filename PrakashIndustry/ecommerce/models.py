@@ -95,11 +95,13 @@ class Registration(models.Model):
 class Category(models.Model):
     category_name = models.CharField(max_length=100)
     category_slug = models.SlugField(max_length=100)
+    # sub_category = models.ManyToManyField('Category_under_Category')
 
     def __str__(self):
         return self.category_slug
 
-
+class Category_under_Category(models.Model):
+    category_name = models.CharField(max_length=100)
 
 from django.shortcuts import reverse
 
@@ -108,7 +110,7 @@ class Product(models.Model):
     slug = models.SlugField(unique=True,max_length=100)
     product_price = models.FloatField()
     product_description = models.TextField()
-    product_category = models.ManyToManyField('Category')
+    product_category = models.ManyToManyField('Category',related_name='category')
     product_quantity = models.PositiveIntegerField()
     product_rating = models.PositiveIntegerField()
 
