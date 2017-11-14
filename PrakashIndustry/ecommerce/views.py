@@ -78,7 +78,17 @@ class AddSubscriptionUser(CreateView):
 
 from .models import Category,Product
 
-class Category(ListView):
+class CategoryList(ListView):
     template_name = 'ecommerce/category.html'
     model = Category
     context_object_name = 'categories'
+
+
+class Product_list_Category(ListView):
+    template_name = 'ecommerce/productpage.html'
+    model = Product
+
+    def get_queryset(self):
+        category = Category.objects.filter(id=self.kwargs['pk'])
+        product_list_category_wise = Product.objects.filter(product_category=category)
+        return product_list_category_wise
