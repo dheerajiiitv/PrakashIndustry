@@ -76,7 +76,9 @@ class AddSubscriptionUser(CreateView):
         return self.get_success_url(form)
 
 
+from .models import Category,Product
 
-
-class Category(TemplateView):
+class Category(ListView):
     template_name = 'ecommerce/category.html'
+    model = Category
+    context_object_name = 'categories'
