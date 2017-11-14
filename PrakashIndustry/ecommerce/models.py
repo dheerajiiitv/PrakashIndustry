@@ -95,13 +95,17 @@ class Registration(models.Model):
 class Category(models.Model):
     category_name = models.CharField(max_length=100)
     category_slug = models.SlugField(max_length=100)
-    # sub_category = models.ManyToManyField('Category_under_Category')
+    sub_category = models.ManyToManyField('Category_under_Category')
 
     def __str__(self):
         return self.category_slug
 
 class Category_under_Category(models.Model):
     category_name = models.CharField(max_length=100)
+
+
+    def __str__(self):
+        return self.category_name
 
 from django.shortcuts import reverse
 
@@ -120,4 +124,16 @@ class Product(models.Model):
     def get_absolute_url(self):
         return reverse('products:detail', kwargs={'slug': self.slug})
 
+def _image_upload(instance, filename):
+    return f'products/{instance.product.slug}/{filename}'
+
+
+class ProductImages(models.Model):
+    product = models.ForeignKey(Product,related_name='product')
+    image = models.ImageField(upload_to=_image_upload)
+    alt_text = models.CharField(max_length=20)
+
+
+    def __str__(self):
+        return self.product.product_name
 
