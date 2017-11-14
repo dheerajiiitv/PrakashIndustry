@@ -7,7 +7,7 @@ from django.urls import reverse,reverse_lazy
 from django.contrib.auth import authenticate,login,logout
 
 from django.contrib.auth.decorators import login_required
-from django.views.generic import CreateView,UpdateView,ListView,DetailView
+from django.views.generic import CreateView,UpdateView,ListView,DetailView,TemplateView
 def home(request):
     return render(request,'ecommerce/index.html')
 def signup(request):
@@ -57,12 +57,12 @@ class AddSubscriptionUser(CreateView):
         self.object = form.save(commit=False)
         already_exists = MyUser.objects.filter(email__exact=self.object.email)
         if already_exists:
-            return render(self.request, 'ecommerce/index.html', {'message': 'You are a Register User'})
+            form.cleaned_data['email'] = ''
+            return HttpResponseRedirect('/')
         else:
             already_subscribed = SubscribedUsers.objects.filter(email__exact=self.object.email)
             if already_subscribed:
-                return render(self.request, 'ecommerce/index.html',
-                              {'message': 'You are already subscribed to our website'})
+                return HttpResponseRedirect('/')
 
             else:
                 form.save()
@@ -78,3 +78,5 @@ class AddSubscriptionUser(CreateView):
 
 
 
+class Category(TemplateView):
+    template_name = 'ecommerce/category.html'

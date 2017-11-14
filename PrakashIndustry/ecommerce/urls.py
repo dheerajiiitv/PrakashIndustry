@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from .views import signup,afterLogin,Login,home,Logout,AddSubscriptionUser
+from .views import signup,afterLogin,Login,home,Logout,AddSubscriptionUser,Category
 app_name = 'ecommerce'
 urlpatterns = [
     url(r'^$',AddSubscriptionUser.as_view(),name='home'),
@@ -7,7 +7,9 @@ urlpatterns = [
     url(r'^timepass/$',afterLogin,name='timepass'),
     url(r'^login/$',Login.as_view(),name='login'),
     url(r'^logout/$',Logout.as_view(),name='logout'),
-    url(r'^subscribr/$',AddSubscriptionUser.as_view(),name='subscribe')
+    url(r'^subscribr/$',AddSubscriptionUser.as_view(),name='subscribe'),
+    url(r'^categories/$',Category.as_view(),name='category')
+
 
 
 ]

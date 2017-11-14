@@ -92,3 +92,30 @@ class MyUser(AbstractBaseUser):
 class Registration(models.Model):
     user = models.OneToOneField(MyUser,on_delete=models.CASCADE)
 
+class Category(models.Model):
+    category_name = models.CharField(max_length=100)
+    category_slug = models.SlugField(max_length=100)
+
+    def __str__(self):
+        return self.category_slug
+
+
+
+from django.shortcuts import reverse
+
+class Product(models.Model):
+    product_name = models.CharField("Product Name",max_length=100,unique=True)
+    slug = models.SlugField(unique=True,max_length=100)
+    product_price = models.FloatField()
+    product_description = models.TextField()
+    product_category = models.ManyToManyField('Category')
+    product_quantity = models.PositiveIntegerField()
+    product_rating = models.PositiveIntegerField()
+
+    def __str__(self):
+        return self.product_name
+
+    def get_absolute_url(self):
+        return reverse('products:detail', kwargs={'slug': self.slug})
+
+
