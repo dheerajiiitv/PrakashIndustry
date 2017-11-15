@@ -66,6 +66,7 @@ class UserChangeForm(forms.ModelForm):
     #     self.cleaned_data["user_obj"] = user_exits
     #     return super(UserLoginForm,self).clean()
 from admin_interface.models import SubscribedUsers
+from .models import CustomerReview
 class AddSubscribedUserForm(forms.ModelForm):
     email = forms.EmailField(widget=forms.TextInput(attrs={'class':'input-email'}))
 
@@ -74,3 +75,7 @@ class AddSubscribedUserForm(forms.ModelForm):
         fields = ('__all__')
 
 
+# class ReviewForm(forms.ModelForm):
+#     class Meta:
+#         model=CustomerReview
+#         fields = ('')

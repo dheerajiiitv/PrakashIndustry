@@ -155,11 +155,22 @@ class Product(models.Model):
 
         return similar_product
 
+FEATURED = (
+    (0, 'Very bad'),
+    (1, 'Bad'),
+    (2, 'Normal'),
+    (3, 'Good'),
+    (4, 'Very Good'),
+    (5, 'Excellent'),
 
+
+)
+from django.utils import timezone
 class CustomerReview(models.Model):
     user = models.ForeignKey(MyUser,on_delete=models.CASCADE,related_name='user_reviewed')
     product = models.ForeignKey(Product,on_delete=models.CASCADE,related_name='product_reviewed')
-    rating = models.IntegerField(default=0)
+    review_date = models.DateField(default=timezone.now())
+    rating = models.IntegerField(choices=FEATURED,default=0)
     review = models.TextField(blank=True)
 
 
@@ -168,6 +179,10 @@ class CustomerReview(models.Model):
 
     def get_absolute_url(self):
         return reverse('products:product_review', kwargs={'pk': self.pk})
+
+
+    class Meta:
+        unique_together=('user','product')
 def _image_upload(instance, filename):
     return f'products/{instance.product.slug}/{filename}'
 

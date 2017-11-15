@@ -112,4 +112,31 @@ class ProductDetails(DetailView):
     model = Product
 
 
+from django.utils import timezone
+def review(request,*args,**kwargs):
+    if request.method == 'POST':
+        review_text = request.POST['msg']
+        rating = request.POST['rating']
+        product = Product.objects.get(id=kwargs['pk'])
+        try:
+            customer_review = CustomerReview.objects.create(
+                rating = rating,
+                user = request.user,
+                review = review_text,
+                review_date = timezone.now(),
+                product = product,
+            )
+            print(customer_review.product)
+            print(customer_review.rating)
+            print(customer_review.review_date)
+
+            customer_review.save()
+        except:
+            return HttpResponseRedirect(reverse('ecommerce:product_detail',kwargs={'slug':product.slug}))
+
+
+        return HttpResponseRedirect(reverse('ecommerce:product_detail',kwargs={'slug':product.slug}))
+
+
+
 

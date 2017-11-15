@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from .views import signup,afterLogin,Login,home,Logout,AddSubscriptionUser,CategoryList,Product_list_Category,ProductDetails
+from .views import signup,afterLogin,Login,home,Logout,AddSubscriptionUser,CategoryList,Product_list_Category,ProductDetails,review
 app_name = 'ecommerce'
 urlpatterns = [
     url(r'^$',AddSubscriptionUser.as_view(),name='home'),
@@ -10,10 +10,8 @@ urlpatterns = [
     url(r'^subscribr/$',AddSubscriptionUser.as_view(),name='subscribe'),
     url(r'^categories/$',CategoryList.as_view(),name='category'),
     url(r'^productList/category(?P<pk>[0-9a-f-]+)$',Product_list_Category.as_view(),name='product_list'),
-    url(r'^productdetail(?P<slug>[\w-]+)\$',ProductDetails.as_view(),name='product_detail'),
-
-
-
+    url(r'^productdetail(?P<slug>[\w-]+)$',ProductDetails.as_view(),name='product_detail'),
+    url(r'^postreview(?P<pk>[\w-]+)$',review,name="product_review"),
 ]
 from django.conf import settings
 from django.conf.urls.static import static
