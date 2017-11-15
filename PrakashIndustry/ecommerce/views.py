@@ -110,3 +110,6 @@ class Product_list_Category(ListView):
 
 class ProductDetails(DetailView):
     model = Product
+
+
+

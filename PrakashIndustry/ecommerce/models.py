@@ -95,13 +95,17 @@ class Registration(models.Model):
 class Category(models.Model):
     category_name = models.CharField(max_length=100)
     category_slug = models.SlugField(max_length=100)
-    sub_category = models.ManyToManyField('Category_under_Category')
+    # sub_category = models.ManyToManyField('Category_under_Category')
 
     def __str__(self):
-        return self.category_slug
+        return self.category_name
+
+
+
+
 
 class Category_under_Category(models.Model):
-    category_name = models.CharField(max_length=100)
+    category_name = models.CharField(max_length=100,unique=True,default=' ')
 
 
     def __str__(self):
@@ -117,7 +121,7 @@ class Product(models.Model):
     product_description = models.TextField()
     product_category = models.ManyToManyField('Category',related_name='category')
     product_quantity = models.PositiveIntegerField()
-
+    sub_category = models.ForeignKey(Category_under_Category, on_delete=models.CASCADE)
 
 
     def __str__(self):
@@ -139,6 +143,12 @@ class Product(models.Model):
         else:
             return None
 
+    def get_similar_product(self):
+        print(list(self.product_category.all().values_list(self,'category_name')))
+        similar_product = Product.objects.filter(product_category__category_name__in=['Kitchen','Office']).all().distinct()
+        print(similar_product)
+
+        return similar_product
 
 
 class CustomerReview(models.Model):

@@ -111,6 +111,7 @@ new WOW().init();
               {{ product.product_name }}
             </h3>
             <p class="text-left review">
+{#            TODO add for loop#}
                 {% for star in product.get_product_rating|floatformat:"0" %}
             <span class="glyphicon glyphicon-star" aria-hidden="true" style="color: brown;"></span>
             {% endfor %}
@@ -120,6 +121,7 @@ new WOW().init();
             <i class="fa fa-inr" aria-hidden="true"></i> {{ product.product_price }}/-
           </h3>
           <p class="text-left review" style="color:gray;">
+            {#              TODO add short description to model#}
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
           <p class="text-left" style="padding-top: 3%;">
@@ -140,8 +142,17 @@ new WOW().init();
                 </div>
                 <div class="panel-body">
                     <div class="tab-content">
-                        <div class="tab-pane fade in active" id="tab1success">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-                        <div class="tab-pane fade" id="tab2success">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+                        <div class="tab-pane fade in active" id="tab1success">{{ product.product_description }}</div>
+                        <div class="tab-pane fade" id="tab2success">
+                            Category:
+                            {% for category in product.product_category.all %}
+
+                            {{ category.category_name }}{% if forloop.last %}
+                                {% else %}
+                                ,
+                                {% endif %}
+                            {% endfor %}
+                        </div>
                         <div class="tab-pane fade" id="tab3success">
                          <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
@@ -205,6 +216,9 @@ new WOW().init();
         </div>
       </div>
     </div>
+{% for p in product.get_similar_product.all %}
+    {{ forloop.counter0 }}
+{% endfor %}
   <section id="sim-product">
     <div class="container-fluid">
       <div class='row'>
