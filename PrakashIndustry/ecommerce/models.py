@@ -109,6 +109,7 @@ class Category_under_Category(models.Model):
 
 from django.shortcuts import reverse
 
+
 class Product(models.Model):
     product_name = models.CharField("Product Name",max_length=100,unique=True)
     slug = models.SlugField(unique=True,max_length=100)
@@ -116,14 +117,40 @@ class Product(models.Model):
     product_description = models.TextField()
     product_category = models.ManyToManyField('Category',related_name='category')
     product_quantity = models.PositiveIntegerField()
-    product_rating = models.PositiveIntegerField()
+
+
 
     def __str__(self):
         return self.product_name
 
     def get_absolute_url(self):
         return reverse('products:detail', kwargs={'slug': self.slug})
+    def get_product_total_rating(self):
+        rating = CustomerReview.objects.filter(product=self)
+        review_count = len(rating)
+        return rating,review_count
+    def get_product_rating(self):
+        rating,review_count = self.get_product_total_rating()
+        sum = 0
+        for rvw in rating:
+            sum +=rvw.rating
+        if review_count is not 0:
+            return sum/review_count
+        else:
+            return None
 
+class CustomerReview(models.Model):
+    user = models.ForeignKey(MyUser,on_delete=models.CASCADE,related_name='user_reviewed')
+    product = models.ForeignKey(Product,on_delete=models.CASCADE,related_name='product_reviewed')
+    rating = models.IntegerField(default=0)
+    review = models.TextField(blank=True)
+
+
+    def __str__(self):
+        return self.user.first_name + " " +self.user.last_name + " " + self.product.product_name
+
+    def get_absolute_url(self):
+        return reverse('products:product_review', kwargs={'pk': self.pk})
 def _image_upload(instance, filename):
     return f'products/{instance.product.slug}/{filename}'
 
@@ -136,5 +163,9 @@ class ProductImages(models.Model):
 
     def __str__(self):
         return self.product.product_name
+
+
+
+
 
 

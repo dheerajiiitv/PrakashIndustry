@@ -76,19 +76,33 @@ class AddSubscriptionUser(CreateView):
         return self.get_success_url(form)
 
 
-from .models import Category,Product
-
+from .models import Category,Product,CustomerReview
+from django.db.models import Avg
 class CategoryList(ListView):
     template_name = 'ecommerce/category.html'
     model = Category
     context_object_name = 'categories'
 
-
+from itertools import cycle
+from django.core.paginator import EmptyPage,PageNotAnInteger,Paginator
 class Product_list_Category(ListView):
     template_name = 'ecommerce/productpage.html'
     model = Product
-
+    paginate_by = 9
+    category_name = ""
     def get_queryset(self):
         category = Category.objects.filter(id=self.kwargs['pk'])
+        self.category_name = category
+        print(self.category_name)
         product_list_category_wise = Product.objects.filter(product_category=category)
+        # zipped = zip(cycle(self.get_avg_product_rating()),self.object_list)
         return product_list_category_wise
+
+
+
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(Product_list_Category,self).get_context_data(**kwargs)
+        context['category'] = self.category_name
+
+        return context

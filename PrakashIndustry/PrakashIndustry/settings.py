@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ecommerce',
     'admin_interface',
-    'bootstrap3'
+    'bootstrap3',
 ]
 
 MIDDLEWARE = [
