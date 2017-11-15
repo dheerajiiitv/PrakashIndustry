@@ -106,3 +106,7 @@ class Product_list_Category(ListView):
         context['category'] = self.category_name
 
         return context
+
+
+class ProductDetails(DetailView):
+    model = Product

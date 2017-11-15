@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>Prakash Industries</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{% static 'ecommerce/css/main.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'ecommerce/css/product.css' %}">
+
+<style type="text/css">
+  .carousel-control1 {
+    position: absolute;
+    top: 25%;
+    bottom: -8px;
+    left: -30px;
+    width: 0%;
+    font-size: 65px;
+    color:black;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0,0,0,.6);
+    background-color: rgba(0,0,0,0);
+    filter: alpha(opacity=50);
+    opacity: .5;
+}
+</style>
+	<script src="js/wow.js"></script>
+<script type="text/javascript">
+new WOW().init();
+</script>
+</head>
+<body>
+
+<input type="checkbox" id="navcheck" role="button" title="menu">
+<label for="navcheck" aria-hidden="true" title="menu">
+	<span class="burger">
+		<span class="bar">
+			<span class="visuallyhidden">Menu</span>
+		</span>
+	</span>
+</label>
+<nav id="menu">
+	<a href="index.html">Home</a>
+	<a href="about.html">About Us</a>
+	<a href="feature.html">Feature Product</a>
+	<a href="shop.html">Shop</a>
+	<a href="contact.html">Contact Us</a>
+
+</nav>
+<section id="banner-productdetail">
+	<div class="container-fluid" class="no-padding">
+		<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+			<img src="image/logo.png" class="img-fluid logo" style="width: 30%; margin: 0 auto;">
+			<h1 class="text-center banner-heading">
+				Product Details
+			</h1>
+		</div>
+	</div>
+</section>
+<section id="individual-product-des">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="col-md-6 col-lg-6 col-xs-12" style="padding-top: 5%; ">
+          <div id='carousel-custom' class='carousel slide' data-ride='carousel'>
+            <div class='carousel-outer'>
+        <!-- me art lab slider -->
+                <div class='carousel-inner '>
+                    {% for images in product.product.all %}
+                    <div class='item {% if forloop.counter0 is 0 %}active{% endif %}'>
+                        <img src='{{images.image.url }}' alt='' id="zoom_05"  data-zoom-image="image/officep1.jpg" class="img-responsive" style="height: 400px; width: 800px;"/>
+                    </div>
+                    {% endfor %}
+
+
+            <script>
+              $("#zoom_05").elevateZoom({ zoomType    : "inner", cursor: "crosshair" });
+            </script>
+        </div>
+
+        <!-- sag sol -->
+        <a class='left carousel-control' href='#carousel-custom' data-slide='prev'>
+            <span class='glyphicon glyphicon-chevron-left'></span>
+        </a>
+        <a class='right carousel-control' href='#carousel-custom' data-slide='next'>
+            <span class='glyphicon glyphicon-chevron-right'></span>
+        </a>
+    </div>
+
+    <!-- thumb -->
+
+    <ol class='carousel-indicators mCustomScrollbar meartlab'>
+        {% for images in product.product.all %}
+        <li data-target='#carousel-custom' data-slide-to='{{ forloop.counter0 }}' {% if forloop.counter0 is 0 %}class='active'{% endif %}>
+            <img src="{{ images.image.url }}" alt='' class="img-responsive" style="height: 90px; width: 100px"/></li>
+
+         {% endfor %}
+    </ol>
+          </div>
+          </div>
+          <div class="col-md-6 col-lg-6 col-xs-12" style="padding-top: 5%; padding-left: 3%; color: #3b0707; padding-right: 8%;">
+            <h3 class="text-left" style="text-transform: uppercase; color:#721010; font-size: 32px;">
+              {{ product.product_name }}
+            </h3>
+            <p class="text-left review">
+                {% for star in product.get_product_rating|floatformat:"0" %}
+            <span class="glyphicon glyphicon-star" aria-hidden="true" style="color: brown;"></span>
+            {% endfor %}
+            <span style="color: gray;">{{ product.get_product_total_rating.1 }} reviews</span>
+          </p>
+          <h3 class="text-left">
+            <i class="fa fa-inr" aria-hidden="true"></i> {{ product.product_price }}/-
+          </h3>
+          <p class="text-left review" style="color:gray;">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+          <p class="text-left" style="padding-top: 3%;">
+            <span class="cart-des">add cart</span>
+
+            <span class="cart-ord">order now</span>
+            <span class=" glyphicon glyphicon-heart wish" aria-hidden="true"></span>
+          </p>
+
+            <div class="panel with-nav-tabs panel-success">
+                <div class="panel-heading">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab1success" data-toggle="tab">DESCRIPTION</a></li>
+                            <li><a href="#tab2success" data-toggle="tab">INFORMATION</a></li>
+                            <li><a href="#tab3success" data-toggle="tab">REVIEWS</a></li>
+
+                        </ul>
+                </div>
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="tab1success">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+                        <div class="tab-pane fade" id="tab2success">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+                        <div class="tab-pane fade" id="tab3success">
+                         <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
+                            <input id="msg" type="text" class="form-control" name="msg" placeholder="Write your review here..">
+                          </div><br>
+                          <div class="content-review">
+                          <p class="text-left" style="display: flex;">
+                            <img src="image/person-2.jpg" class="img-responsive" style="width: 50px;">
+                            <span style="padding-left: 5px;">Shashi Bhushan
+                              <br>
+                              <span style="color: gray; font-size: 12px;">
+                                10-11-2017 10:00 PM<br>
+                                Gandhinagar, Gujarat
+                              </span>
+                            </span>
+                          </p>
+                          <p class="text-left">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                          </p>
+                          <hr>
+                          </div>
+                          <div class="content-review">
+                          <p class="text-left" style="display: flex;">
+                            <img src="image/person-2.jpg" class="img-responsive" style="width: 50px;">
+                            <span style="padding-left: 5px;">Shashi Bhushan
+                              <br>
+                              <span style="color: gray; font-size: 12px;">
+                                10-11-2017 10:00 PM<br>
+                                Gandhinagar, Gujarat
+                              </span>
+                            </span>
+                          </p>
+                          <p class="text-left">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                          </p>
+                          <hr>
+                          </div>
+                          <div class="content-review">
+                          <p class="text-left" style="display: flex;">
+                            <img src="image/person-2.jpg" class="img-responsive" style="width: 50px;">
+                            <span style="padding-left: 5px;">Shashi Bhushan
+                              <br>
+                              <span style="color: gray; font-size: 12px;">
+                                10-11-2017 10:00 PM<br>
+                                Gandhinagar, Gujarat
+                              </span>
+                            </span>
+                          </p>
+                          <p class="text-left">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                          </p>
+                          <hr>
+                          </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <section id="sim-product">
+    <div class="container-fluid">
+      <div class='row'>
+        <div class="col-md-12">
+          <h2 class="text-center" style="color: brown;">
+            Similiar Products
+          </h2>
+        </div>
+    <div class='col-md-12'>
+      <div class="carousel slide media-carousel" id="media">
+        <div class="carousel-inner" style="background-color: #fff !important;">
+          <div class="item catslider  active">
+            <div class="row">
+              <div class="col-md-4">
+                <a class="thumbnail" href="#"><img alt="" src="image/slider1.jpg" class="img-fluid"></a>
+              </div>
+              <div class="col-md-4">
+                <a class="thumbnail" href="#"><img alt="" class="img-fluid" src="image/slider1.jpg"></a>
+              </div>
+              <div class="col-md-4">
+                <a class="thumbnail" href="#"><img alt="" src="image/slider1.jpg" class="img-fluid"></a>
+              </div>
+            </div>
+          </div>
+          <div class="item catslider ">
+            <div class="row">
+              <div class="col-md-4">
+                <a class="thumbnail" href="#"><img alt="" src="image/slider1.jpg" class="img-fluid"></a>
+              </div>
+              <div class="col-md-4">
+                <a class="thumbnail" href="#"><img alt="" class="img-fluid" src="image/slider1.jpg"></a>
+              </div>
+              <div class="col-md-4">
+                <a class="thumbnail" href="#"><img alt="" src="image/slider1.jpg" class="img-fluid"></a>
+              </div>
+            </div>
+          </div>
+          <div class="item catslider">
+            <div class="row">
+              <div class="col-md-4">
+                <a class="thumbnail" href="#"><img alt="" src="image/slider1.jpg" class="img-fluid"></a>
+              </div>
+              <div class="col-md-4">
+                <a class="thumbnail" href="#"><img alt="" class="img-fluid" src="image/slider1.jpg"></a>
+              </div>
+              <div class="col-md-4">
+                <a class="thumbnail" href="#"><img alt="" src="image/slider1.jpg" class="img-fluid"></a>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        <a data-slide="prev" href="#media" class="left carousel-control1"><</a>
+        <a data-slide="next" href="#media" class="right carousel-control1">></a>
+      </div>
+    </div>
+  </div>
+  </section>
+</section>
+  <section id="Query">
+  	<div class="container-fluid">
+  		<div class="row">
+  			<div class="col-lg-12 col-md-12 col-xs-12">
+  				<h1 class="text-center about-heading">
+					<span style="color: #fff;">Leave Us A Message!</span>
+					<hr>
+				</h1>
+  			</div>
+  			<div class="col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 col-xs-12">
+  				<div class="form-area">
+        <form role="form">
+        <br style="clear:both">
+
+    				<div class="form-group">
+						<input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="mobile" name="mobile" placeholder="Mobile Number" required>
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
+					</div>
+                    <div class="form-group">
+                    <textarea class="form-control" type="textarea" id="message" placeholder="Message" maxlength="140" rows="7"></textarea>
+
+                    </div>
+
+        <button type="button" id="submit" name="submit" class="btn btn-primary querybutton">Submit Form</button>
+        </form>
+    </div>
+  			</div>
+  		</div>
+  	</div>
+  </section>
+  <section id="footer">
+  	<div class="container-fluid">
+  		<div class="row">
+  			<div class="col-md-12 col-lg-12 ">
+  				<h4 class="text-center" style="color: brown; font-size: 28px;">Prakash Industries</h4>
+  				<p class="text-center" style="color: brown;">
+  				<img src="image/facebook.png">
+  				<img src="image/twitter.png">
+  				<img src="image/instagram.png">
+  			</p>
+  			<p class="text-center" style="color:brown;">
+  				IIIT Vadodara@2017. Privacy Policy
+  			</p>
+  			</div>
+  		</div>
+  	</div>
+  </section>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/jquer.js"></script>
+<script src="js/jquery.min.js"></script>
+ <script type="text/javascript" src="js/product.js"></script>
+
+</body>
+</html>

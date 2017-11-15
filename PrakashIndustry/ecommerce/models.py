@@ -124,7 +124,7 @@ class Product(models.Model):
         return self.product_name
 
     def get_absolute_url(self):
-        return reverse('products:detail', kwargs={'slug': self.slug})
+        return reverse('ecommerce:product_detail', kwargs={'slug': self.slug})
     def get_product_total_rating(self):
         rating = CustomerReview.objects.filter(product=self)
         review_count = len(rating)
@@ -138,6 +138,8 @@ class Product(models.Model):
             return sum/review_count
         else:
             return None
+
+
 
 class CustomerReview(models.Model):
     user = models.ForeignKey(MyUser,on_delete=models.CASCADE,related_name='user_reviewed')
