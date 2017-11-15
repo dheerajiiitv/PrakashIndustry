@@ -112,7 +112,7 @@ class Category_under_Category(models.Model):
         return self.category_name
 
 from django.shortcuts import reverse
-
+from django.db.models import  Q
 
 class Product(models.Model):
     product_name = models.CharField("Product Name",max_length=100,unique=True)
@@ -121,7 +121,7 @@ class Product(models.Model):
     product_description = models.TextField()
     product_category = models.ManyToManyField('Category',related_name='category')
     product_quantity = models.PositiveIntegerField()
-    sub_category = models.ForeignKey(Category_under_Category, on_delete=models.CASCADE)
+    sub_category = models.ForeignKey(Category_under_Category, on_delete=models.CASCADE,related_name='sub_category')
 
 
     def __str__(self):
@@ -144,9 +144,14 @@ class Product(models.Model):
             return None
 
     def get_similar_product(self):
-        print(list(self.product_category.all().values_list(self,'category_name')))
-        similar_product = Product.objects.filter(product_category__category_name__in=['Kitchen','Office']).all().distinct()
-        print(similar_product)
+        sub_cat = []
+        print(self.product_category.all().values_list('category_name'))
+        for cat in self.product_category.all():
+            sub_cat.append(cat.category_name)
+
+        print(sub_cat)
+        similar_product = Product.objects.filter(Q(product_category__category_name__in=sub_cat)
+                                                 &Q(sub_category=self.sub_category)).all().distinct()
 
         return similar_product
 

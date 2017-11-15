@@ -50,15 +50,23 @@ new WOW().init();
 <nav id="menu">
 	<a href="index.html">Home</a>
 	<a href="about.html">About Us</a>
-	<a href="feature.html">Feature Product</a>
+	<a href="{% url 'ecommerce:category' %}">Feature Product</a>
 	<a href="shop.html">Shop</a>
 	<a href="contact.html">Contact Us</a>
+
+    {% if user.is_authenticated %}
+        <a href="{% url 'ecommerce:logout' %}">Logout</a>
+        {% else %}
+         <a href="{% url 'ecommerce:login' %}">Sign In</a>
+    <a href="{% url 'ecommerce:register'%}">Sign Up</a>
+    {% endif %}
+
 
 </nav>
 <section id="banner-productdetail">
 	<div class="container-fluid" class="no-padding">
 		<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-			<img src="image/logo.png" class="img-fluid logo" style="width: 30%; margin: 0 auto;">
+			<img src="{% static 'ecommerce/image/logo.png' %}" class="img-fluid logo" style="width: 30%; margin: 0 auto;">
 			<h1 class="text-center banner-heading">
 				Product Details
 			</h1>
@@ -144,14 +152,17 @@ new WOW().init();
                     <div class="tab-content">
                         <div class="tab-pane fade in active" id="tab1success">{{ product.product_description }}</div>
                         <div class="tab-pane fade" id="tab2success">
-                            Category:
+                            For Place:
                             {% for category in product.product_category.all %}
 
                             {{ category.category_name }}{% if forloop.last %}
+
                                 {% else %}
                                 ,
                                 {% endif %}
                             {% endfor %}
+                        <br>
+                            Category: {{ product.sub_category.category_name }}
                         </div>
                         <div class="tab-pane fade" id="tab3success">
                          <div class="input-group">
@@ -216,9 +227,6 @@ new WOW().init();
         </div>
       </div>
     </div>
-{% for p in product.get_similar_product.all %}
-    {{ forloop.counter0 }}
-{% endfor %}
   <section id="sim-product">
     <div class="container-fluid">
       <div class='row'>
@@ -230,45 +238,29 @@ new WOW().init();
     <div class='col-md-12'>
       <div class="carousel slide media-carousel" id="media">
         <div class="carousel-inner" style="background-color: #fff !important;">
-          <div class="item catslider  active">
+            {% for product in product.get_similar_product.all %}
+                {% if forloop.counter0|divisibleby:3 %}
+          <div class="item catslider  {% if forloop.counter0 is 0 %}active{% endif %}">
             <div class="row">
+        {% endif %}
               <div class="col-md-4">
-                <a class="thumbnail" href="#"><img alt="" src="image/slider1.jpg" class="img-fluid"></a>
+                <a class="thumbnail" href="#"><img alt="" src="{{product.product.all.0.image.url }}" class="img-fluid" style="height: 200px; width: 400px;"></a>
+              {{ product.product_name }}
               </div>
-              <div class="col-md-4">
-                <a class="thumbnail" href="#"><img alt="" class="img-fluid" src="image/slider1.jpg"></a>
-              </div>
-              <div class="col-md-4">
-                <a class="thumbnail" href="#"><img alt="" src="image/slider1.jpg" class="img-fluid"></a>
-              </div>
+
+{#              <div class="col-md-4">#}
+{#                <a class="thumbnail" href="#"><img alt="" class="img-fluid" src="image/slider1.jpg"></a>#}
+{#              </div>#}
+{#              <div class="col-md-4">#}
+{#                <a class="thumbnail" href="#"><img alt="" src="image/slider1.jpg" class="img-fluid"></a>#}
+{#              </div>#}
+                {% if forloop.counter0 is not 0 %}
+        {% if forloop.counter0|divisibleby:2 or forloop.last%}
             </div>
           </div>
-          <div class="item catslider ">
-            <div class="row">
-              <div class="col-md-4">
-                <a class="thumbnail" href="#"><img alt="" src="image/slider1.jpg" class="img-fluid"></a>
-              </div>
-              <div class="col-md-4">
-                <a class="thumbnail" href="#"><img alt="" class="img-fluid" src="image/slider1.jpg"></a>
-              </div>
-              <div class="col-md-4">
-                <a class="thumbnail" href="#"><img alt="" src="image/slider1.jpg" class="img-fluid"></a>
-              </div>
-            </div>
-          </div>
-          <div class="item catslider">
-            <div class="row">
-              <div class="col-md-4">
-                <a class="thumbnail" href="#"><img alt="" src="image/slider1.jpg" class="img-fluid"></a>
-              </div>
-              <div class="col-md-4">
-                <a class="thumbnail" href="#"><img alt="" class="img-fluid" src="image/slider1.jpg"></a>
-              </div>
-              <div class="col-md-4">
-                <a class="thumbnail" href="#"><img alt="" src="image/slider1.jpg" class="img-fluid"></a>
-              </div>
-            </div>
-          </div>
+                {% endif %}
+                {% endif %}
+            {% endfor %}
           </div>
         </div>
         <a data-slide="prev" href="#media" class="left carousel-control1"><</a>
@@ -335,10 +327,10 @@ new WOW().init();
   </section>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquer.js"></script>
-<script src="js/jquery.min.js"></script>
- <script type="text/javascript" src="js/product.js"></script>
+<script src="{% static 'ecommerce/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'ecommerce/js/jquer.js' %}"></script>
+<script src="{% static 'ecommerce/js/jquery.min.js' %}"></script>
+ <script src="{% static 'ecommerce/js/bootstrap.bundle.min.js' %}"></script>
 
 </body>
 </html>
