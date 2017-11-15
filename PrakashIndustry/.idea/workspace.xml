@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8480e0fe-a654-4ef4-a635-6e2c1d861b76" name="Default" comment="">
+    <list default="true" id="8480e0fe-a654-4ef4-a635-6e2c1d861b76" name="Default" comment="Product List Category Wise Done with pagination">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ecommerce/migrations/0007_auto_20171115_0158.py" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ecommerce/migrations/0008_auto_20171115_0202.py" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ecommerce/migrations/0009_auto_20171115_0204.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ecommerce/migrations/0010_auto_20171115_0351.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PrakashIndustry/settings.py" afterPath="$PROJECT_DIR$/PrakashIndustry/settings.py" />
@@ -36,21 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PrakashIndustry/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="20" column="40" lean-forward="false" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ecommerce/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="105" column="30" lean-forward="false" selection-start-line="105" selection-start-column="30" selection-end-line="105" selection-end-column="30" />
+            <state relative-caret-position="425">
+              <caret line="90" column="19" lean-forward="false" selection-start-line="90" selection-start-column="19" selection-end-line="90" selection-end-column="19" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -58,11 +49,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin_interface/urls.py">
+      <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ecommerce/static/ecommerce/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="5" column="3" lean-forward="false" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+            <state relative-caret-position="301">
+              <caret line="734" column="10" lean-forward="false" selection-start-line="734" selection-start-column="10" selection-end-line="734" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -71,9 +62,10 @@
       <file leaf-file-name="category.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ecommerce/templates/ecommerce/category.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="92" column="148" lean-forward="false" selection-start-line="92" selection-start-column="148" selection-end-line="92" selection-end-column="148" />
+            <state relative-caret-position="126">
+              <caret line="77" column="148" lean-forward="false" selection-start-line="77" selection-start-column="148" selection-end-line="77" selection-end-column="148" />
               <folding>
+                <element signature="n#style#0;n#h2#0;n#a#0;n#div#0;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
@@ -90,20 +82,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="productpage.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin_interface/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="productpage.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ecommerce/templates/ecommerce/productpage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="42" column="28" lean-forward="false" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
+            <state relative-caret-position="331">
+              <caret line="74" column="157" lean-forward="false" selection-start-line="74" selection-start-column="157" selection-end-line="74" selection-end-column="157" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#h3#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#p#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#section#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#2569#2576#1#HTML" expanded="true" />
-                <element signature="e#2802#2809#1#HTML" expanded="true" />
+                <element signature="e#3509#3516#1#HTML" expanded="true" />
+                <element signature="e#3576#3583#1#HTML" expanded="true" />
+                <element signature="e#3978#3985#1#HTML" expanded="true" />
+                <element signature="e#4043#4050#1#HTML" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#h1#0;n#div#0;n#div#0;n#div#0;n#section#3;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#br#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#3;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#section#4;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -117,8 +122,8 @@
       <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ecommerce/templates/ecommerce/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="15" column="17" lean-forward="true" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+            <state relative-caret-position="360">
+              <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="115" selection-end-column="76" />
               <folding />
             </state>
           </provider>
@@ -127,8 +132,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ecommerce/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
-              <caret line="157" column="0" lean-forward="false" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
+            <state relative-caret-position="-56">
+              <caret line="127" column="32" lean-forward="false" selection-start-line="127" selection-start-column="8" selection-end-line="127" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -138,8 +143,11 @@
         <entry file="file://$PROJECT_DIR$/ecommerce/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="18">
-              <caret line="1" column="87" lean-forward="false" selection-start-line="1" selection-start-column="87" selection-end-line="1" selection-end-column="87" />
-              <folding />
+              <caret line="1" column="83" lean-forward="false" selection-start-line="1" selection-start-column="83" selection-end-line="1" selection-end-column="83" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+                <marker date="1510697341306" expanded="true" signature="686:692" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -165,6 +173,7 @@
       <find>input-em</find>
       <find>subs</find>
       <find>shop no</find>
+      <find>prod</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -174,6 +183,11 @@
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="65fe151bbb1435882792f2a780ff3fbdfac15d33" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -185,25 +199,25 @@
         <option value="$PROJECT_DIR$/Ecommerce/views.py" />
         <option value="$PROJECT_DIR$/Ecommerce/urls.py" />
         <option value="$PROJECT_DIR$/ecommerce/templates/Ecommerce/login.html" />
+        <option value="$PROJECT_DIR$/PrakashIndustry/urls.py" />
         <option value="$PROJECT_DIR$/ecommerce/templates/ecommerce/home.html" />
         <option value="$PROJECT_DIR$/ecommerce/templates/ecommerce/signup.html" />
         <option value="$PROJECT_DIR$/admin_interface/admin.py" />
         <option value="$PROJECT_DIR$/admin_interface/views.py" />
         <option value="$PROJECT_DIR$/ecommerce/templates/ecommerce/successful_register.html" />
         <option value="$PROJECT_DIR$/ecommerce/forms.py" />
-        <option value="$PROJECT_DIR$/ecommerce/static/ecommerce/css/main.css" />
         <option value="$PROJECT_DIR$/admin_interface/models.py" />
         <option value="$PROJECT_DIR$/ecommerce/templates/ecommerce/login.html" />
         <option value="$PROJECT_DIR$/ecommerce/templates/ecommerce/index.html" />
-        <option value="$PROJECT_DIR$/ecommerce/templates/ecommerce/base.html" />
-        <option value="$PROJECT_DIR$/ecommerce/urls.py" />
-        <option value="$PROJECT_DIR$/PrakashIndustry/settings.py" />
-        <option value="$PROJECT_DIR$/PrakashIndustry/urls.py" />
         <option value="$PROJECT_DIR$/ecommerce/admin.py" />
-        <option value="$PROJECT_DIR$/ecommerce/models.py" />
-        <option value="$PROJECT_DIR$/ecommerce/views.py" />
+        <option value="$PROJECT_DIR$/PrakashIndustry/settings.py" />
+        <option value="$PROJECT_DIR$/ecommerce/urls.py" />
+        <option value="$PROJECT_DIR$/ecommerce/templates/ecommerce/base.html" />
         <option value="$PROJECT_DIR$/ecommerce/templates/ecommerce/category.html" />
+        <option value="$PROJECT_DIR$/ecommerce/models.py" />
         <option value="$PROJECT_DIR$/ecommerce/templates/ecommerce/productpage.html" />
+        <option value="$PROJECT_DIR$/ecommerce/static/ecommerce/css/main.css" />
+        <option value="$PROJECT_DIR$/ecommerce/views.py" />
       </list>
     </option>
   </component>
@@ -215,8 +229,8 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="24" />
-    <option name="width" value="1358" />
-    <option name="height" value="984" />
+    <option name="width" value="1069" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -258,6 +272,27 @@
               <item name="PrakashIndustry" type="462c0819:PsiDirectoryNode" />
               <item name="ecommerce" type="462c0819:PsiDirectoryNode" />
               <item name="migrations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PrakashIndustry" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PrakashIndustry" type="462c0819:PsiDirectoryNode" />
+              <item name="ecommerce" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PrakashIndustry" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PrakashIndustry" type="462c0819:PsiDirectoryNode" />
+              <item name="ecommerce" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="ecommerce" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PrakashIndustry" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PrakashIndustry" type="462c0819:PsiDirectoryNode" />
+              <item name="ecommerce" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="ecommerce" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="PrakashIndustry" type="b2602c69:ProjectViewProjectNode" />
@@ -307,7 +342,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Desktop/Webtech" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Desktop" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="SearchEverywhereHistoryKey" value="change&#9;FILE&#9;file:///usr/local/lib/python3.6/dist-packages/django/contrib/admin/templates/admin/change_form.html" />
@@ -440,28 +475,7 @@
       <option name="project" value="LOCAL" />
       <updated>1510684554767</updated>
     </task>
-    <task id="LOCAL-00012" summary="Category page is ready">
-      <created>1510685293329</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1510685293329</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Added Product List Images and CSS">
-      <created>1510687313741</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1510687313741</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Sending Products List to ProductList.html">
-      <created>1510689581444</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1510689581444</updated>
-    </task>
-    <option name="localTasksCounter" value="15" />
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -478,24 +492,37 @@
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32785088" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32713348" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="manage.py@PrakashIndustry" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32822758" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25827107" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="manage.py@PrakashIndustry" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32785088" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12113127" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32785088" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="manage.py@PrakashIndustry" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.255603" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -542,10 +569,8 @@
     <MESSAGE value="Added Image model for product" />
     <MESSAGE value="Login Redirect URL and LOGIN Url added" />
     <MESSAGE value="WOw EFFECT&#10;&#10;&#10;FInally SLider working" />
-    <MESSAGE value="Category page is ready" />
-    <MESSAGE value="Added Product List Images and CSS" />
-    <MESSAGE value="Sending Products List to ProductList.html" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sending Products List to ProductList.html" />
+    <MESSAGE value="Product List Category Wise Done with pagination" />
+    <option name="LAST_COMMIT_MESSAGE" value="Product List Category Wise Done with pagination" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -632,7 +657,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="22" />
-          <folding />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+            <marker date="1510697341306" expanded="true" signature="686:692" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -733,6 +761,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/PrakashIndustry/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="20" column="40" lean-forward="false" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file:///usr/local/lib/python3.6/dist-packages/django/contrib/auth/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-421">
@@ -767,6 +803,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/admin_interface/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="5" column="3" lean-forward="false" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ecommerce/templates/ecommerce/successful_register.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -782,13 +826,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ecommerce/static/ecommerce/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6660">
-          <caret line="370" column="43" lean-forward="false" selection-start-line="370" selection-start-column="43" selection-end-line="370" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin_interface/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -801,7 +838,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
           <caret line="45" column="5" lean-forward="false" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -827,34 +863,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin_interface/views.py">
+    <entry file="file://$PROJECT_DIR$/ecommerce/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ecommerce/templates/ecommerce/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="31" lean-forward="false" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin_interface/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="5" column="3" lean-forward="false" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ecommerce/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="87" lean-forward="false" selection-start-line="1" selection-start-column="87" selection-end-line="1" selection-end-column="87" />
+        <state relative-caret-position="702">
+          <caret line="44" column="34" lean-forward="false" selection-start-line="44" selection-start-column="34" selection-end-line="44" selection-end-column="34" />
           <folding />
         </state>
       </provider>
@@ -867,76 +879,99 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PrakashIndustry/urls.py">
+    <entry file="file://$PROJECT_DIR$/ecommerce/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="20" column="40" lean-forward="false" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
+        <state relative-caret-position="18">
+          <caret line="1" column="83" lean-forward="false" selection-start-line="1" selection-start-column="83" selection-end-line="1" selection-end-column="83" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+            <marker date="1510697341306" expanded="true" signature="686:692" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ecommerce/templates/ecommerce/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="31" lean-forward="false" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ecommerce/admin.py">
+    <entry file="file://$PROJECT_DIR$/ecommerce/templates/ecommerce/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="44" column="34" lean-forward="false" selection-start-line="44" selection-start-column="34" selection-end-line="44" selection-end-column="34" />
+        <state relative-caret-position="360">
+          <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="115" selection-end-column="76" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ecommerce/templates/ecommerce/category.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="77" column="148" lean-forward="false" selection-start-line="77" selection-start-column="148" selection-end-line="77" selection-end-column="148" />
+          <folding>
+            <element signature="n#style#0;n#h2#0;n#a#0;n#div#0;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ecommerce/templates/ecommerce/productpage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="74" column="157" lean-forward="false" selection-start-line="74" selection-start-column="157" selection-end-line="74" selection-end-column="157" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h3#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#p#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#section#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#3509#3516#1#HTML" expanded="true" />
+            <element signature="e#3576#3583#1#HTML" expanded="true" />
+            <element signature="e#3978#3985#1#HTML" expanded="true" />
+            <element signature="e#4043#4050#1#HTML" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#h1#0;n#div#0;n#div#0;n#div#0;n#section#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#br#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#section#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#section#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#1;n#div#0;n#div#0;n#div#0;n#section#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ecommerce/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="157" column="0" lean-forward="false" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
+        <state relative-caret-position="-56">
+          <caret line="127" column="32" lean-forward="false" selection-start-line="127" selection-start-column="8" selection-end-line="127" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_interface/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ecommerce/static/ecommerce/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="734" column="10" lean-forward="false" selection-start-line="734" selection-start-column="10" selection-end-line="734" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ecommerce/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="105" column="30" lean-forward="false" selection-start-line="105" selection-start-column="30" selection-end-line="105" selection-end-column="30" />
+        <state relative-caret-position="425">
+          <caret line="90" column="19" lean-forward="false" selection-start-line="90" selection-start-column="19" selection-end-line="90" selection-end-column="19" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ecommerce/templates/ecommerce/category.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="92" column="148" lean-forward="false" selection-start-line="92" selection-start-column="148" selection-end-line="92" selection-end-column="148" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ecommerce/templates/ecommerce/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="17" lean-forward="true" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ecommerce/templates/ecommerce/productpage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="42" column="28" lean-forward="false" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h3#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#section#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#2569#2576#1#HTML" expanded="true" />
-            <element signature="e#2802#2809#1#HTML" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#h1#0;n#div#0;n#div#0;n#div#0;n#section#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#br#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#section#4;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#section#4;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#1;n#div#0;n#div#0;n#div#0;n#section#4;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
