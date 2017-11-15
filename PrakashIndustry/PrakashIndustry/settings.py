@@ -41,9 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'carton',
     'ecommerce',
     'admin_interface',
     'bootstrap3',
+
+
 ]
 
 MIDDLEWARE = [
@@ -123,6 +126,8 @@ LOGIN_URL = '/login'
 LOGIN_REDIRECT_URL = '/categories'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
+
+CART_PRODUCT_MODEL = 'ecommerce.models.Product'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'ecommerce/static')
 ]

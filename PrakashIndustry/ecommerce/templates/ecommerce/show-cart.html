@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="#">Place your order</a>
+
+
+
+{% load carton_tags %}
+{% get_cart as cart %}
+
+{% for item in cart.items %}
+    {{ item.product.name }}
+    {{ item.quantity }}
+
+    <form method="post" action="{% url 'ecommerce:shopping-cart-change-quantity' pk=item.product.id%}">
+    {% csrf_token %}
+    <input type="number" name="remove_quantity" required>
+    <input type="submit" value="Change Quantity" >
+    </form>
+    {{ item.subtotal }}
+    <a href="{% url 'ecommerce:shopping-cart-remove' pk=item.product.id%}">Remove Product</a>
+{% endfor %}
+
+{% for product in cart.products %}
+    {{ product.product_name }}
+    {{ product.product_quantity }}
+{% endfor %}
+</body>
+</html>

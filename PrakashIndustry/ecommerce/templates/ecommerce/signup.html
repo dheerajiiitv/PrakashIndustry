@@ -1,20 +1,140 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Form</title>
-  </head>
-  <body>
-  {% if is_register %}
+{% load static %}
+{% load bootstrap3 %}
+<html lang="en">
+<head>
+<title>Prakash Industries</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-      <p>You are Already Register</p>
-      <a href="{% url 'ecommerce:login' %}">Login</a>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    	<link rel="stylesheet" type="text/css" href="{% static 'ecommerce/css/main.css' %}">
+
+
+	<link rel="stylesheet" type="text/css" href="{% static 'ecommerce/css/login.css' %}">
+    {% load bootstrap3 %}
+	<script src="js/wow.js"></script>
+<script type="text/javascript">
+new WOW().init();
+</script>
+</head>
+<body style="background-color: #80B3AA">
+
+<input type="checkbox" id="navcheck" role="button" title="menu">
+<label for="navcheck" aria-hidden="true" title="menu">
+	<span class="burger">
+		<span class="bar">
+			<span class="visuallyhidden">Menu</span>
+		</span>
+	</span>
+</label>
+<nav id="menu">
+	<a href="index.html">Home</a>
+	<a href="about.html">About Us</a>
+	<a href="{% url 'ecommerce:category' %}">Feature Product</a>
+	<a href="shop.html">Shop</a>
+	<a href="contact.html">Contact Us</a>
+
+    {% if user.is_authenticated %}
+        <a href="{% url 'ecommerce:logout' %}">Logout</a>
         {% else %}
-      <form  method="post">{% csrf_token %}
-    {{form1.as_p}}
-    <input type="submit" value="Register">
-  </form>
-  {% endif %}
+         <a href="{% url 'ecommerce:login' %}">Sign In</a>
+    <a href="{% url 'ecommerce:register'%}">Sign Up</a>
+    {% endif %}
+
+
+</nav>
+
+<div class="container" style="padding-top: 10%;">
+    	<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="panel panel-login">
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-xs-12">
+								<a href="#" class="active" id="login-form-link">Register</a>
+							</div>
+						</div>
+						<hr>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-12">
+						     <form  method="post">
+                                 {% csrf_token %}
+                                {% bootstrap_form form1 %}
+                                <input type="submit" class="btn btn-success" value="Register">
+                                </form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+{#{% if is_register %}#}
+{##}
+{#You are Succesfully register Please Login#}
+{#{% endif %}#}
+{#<form method="post" >#}
+{#    {% csrf_token %}#}
+{#    {{ form.as_p  }}#}
+{#    <input type="submit" value="Login">#}
+{##}
+{#</form>#}
+{#<a href="{% url 'ecommerce:register' %}">Register</a>#}
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+
+<script src="{% static 'ecommerce/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'ecommerce/js/jquer.js' %}"></script>
+<script src="{% static 'ecommerce/js/jquery.min.js' %}"></script>
+
+<script type="text/javascript">
+	$(function() {
+
+    $('#login-form-link').click(function(e) {
+		$("#login-form").delay(100).fadeIn(100);
+ 		$("#register-form").fadeOut(100);
+		$('#register-form-link').removeClass('active');
+		$(this).addClass('active');
+		e.preventDefault();
+	});
+	$('#register-form-link').click(function(e) {
+		$("#register-form").delay(100).fadeIn(100);
+ 		$("#login-form").fadeOut(100);
+		$('#login-form-link').removeClass('active');
+		$(this).addClass('active');
+		e.preventDefault();
+	});
+
+});
+</script>
 
   </body>
 </html>

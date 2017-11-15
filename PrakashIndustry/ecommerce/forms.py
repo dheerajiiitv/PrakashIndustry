@@ -4,6 +4,7 @@ from django import forms
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 
 from .models import MyUser
+from  django.contrib.auth import password_validation
 
 
 class UserCreationForm(forms.ModelForm):
@@ -20,6 +21,9 @@ class UserCreationForm(forms.ModelForm):
         # Check that the two password entries match
         password1 = self.cleaned_data.get("password1")
         password2 = self.cleaned_data.get("password2")
+        if password_validation.validate_password(password1) is not None:
+            raise forms.ValidationError("Password too commen")
+
         if password1 and password2 and password1 != password2:
             raise forms.ValidationError("Passwords don't match")
         return password2

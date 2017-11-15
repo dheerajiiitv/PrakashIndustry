@@ -10,6 +10,9 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic import CreateView,UpdateView,ListView,DetailView,TemplateView
 def home(request):
     return render(request,'ecommerce/index.html')
+
+
+
 def signup(request):
     is_register = False;
     form1 = UserCreationForm(request.POST or None)
@@ -35,6 +38,8 @@ class Login(LoginView):
 
 class Logout(LogoutView):
     next_page = reverse_lazy('ecommerce:home')
+
+
     # form_class = < class 'django.contrib.auth.forms.AuthenticationForm'>
 
 #for adding subscribed user to database
@@ -137,6 +142,66 @@ def review(request,*args,**kwargs):
 
         return HttpResponseRedirect(reverse('ecommerce:product_detail',kwargs={'slug':product.slug}))
 
+# from .models import QuotedData
+
+# def get_quoted(request):
+#     if request.method == 'POST':
+#         first_name = request.POST['first_name']
+#         last_name = request.POST['last_name']
+#         email = request.POST['email']
+#         phone_number = request.POST['phone_number']
+#         date_of_delivery = request.POST['date']
+#         addreess = request.POST['address']
+#         try:
+#             quoted = QuotedData.objects.create(
+#                 first_name = first_name,
+#                 last_name = last_name,
+#                 email = email,
+#                 phone_number = phone_number,
+#                 date_of_delivery = date_of_delivery,
+#                 addreess =addreess
+#             )
+#
+#             quoted.save(commit=False)
+#
+#         except:
+#             return HttpResponseRedirect()
 
 
+from carton.cart import Cart
+@login_required()
+def add(request,*args,**kwargs):
+    cart = Cart(request.session)
+    product = Product.objects.get(id=kwargs['pk'])
+    cart.add(product,price=product.product_price)
+    return HttpResponse("Product Added")
 
+
+@login_required()
+def remove(request,*args,**kwargs):
+    cart = Cart(request.session)
+    product = Product.objects.get(id=kwargs['pk'])
+    cart.remove(product)
+    return HttpResponse("Product Removed")
+
+
+@login_required()
+def show(request):
+    return render(request,'ecommerce/show-cart.html')
+
+
+def change_quantity(request,*args,**kwargs):
+    cart = Cart(request.session)
+    product = Product.objects.get(id=kwargs['pk'])
+
+    if request.method == "POST":
+        quantiy =  int(request.POST['remove_quantity'])
+        if quantiy > 0 and quantiy < product.product_quantity:
+            cart.set_quantity(product,quantiy)
+            return HttpResponse("Changed Quantity succesfully")
+        else:
+            return HttpResponse('Please Enter Valid quantity')
+
+
+    else:
+        return render(request,'ecommerce/show-cart.html')
