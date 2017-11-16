@@ -197,12 +197,18 @@ class ProductImages(models.Model):
         return self.product.product_name
 
 class Address(models.Model):
+    user = models.ForeignKey(MyUser,on_delete=models.CASCADE,blank=True,null=True)
+    mobile_no = models.IntegerField(default=0)
     block_no = models.CharField(max_length=10)
     street_name = models.CharField(max_length=50)
     area = models.CharField(max_length=20)
     city=models.CharField(max_length=30)
     state = models.CharField(max_length=30)
     pin_code= models.PositiveIntegerField()
+    to_deliver = models.BooleanField(default=True)
+
+
+
 
 # class QuotedData(models.Model):
 #     first_name = models.CharField(max_length=100)
@@ -214,4 +220,15 @@ class Address(models.Model):
 #     date_of_delivery = models.DateField(default=timezone.now)
 #     address = models.TextField()
 
+class Orders(models.Model):
+    user = models.ForeignKey(MyUser,on_delete=models.CASCADE)
+    address = models.ForeignKey(Address,on_delete=models.CASCADE,null=True)
+    product_ordered = models.ForeignKey(Product)
+    product_quantity = models.PositiveIntegerField()
+    order_place_date = models.DateField(timezone.now())
+    is_complete = models.BooleanField(default=False)
+
+
+    def __str__(self):
+       return self.product_ordered.product_name
 

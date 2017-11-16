@@ -174,6 +174,7 @@ def add(request,*args,**kwargs):
     cart = Cart(request.session)
     product = Product.objects.get(id=kwargs['pk'])
     cart.add(product,price=product.product_price)
+
     return HttpResponse("Product Added")
 
 
@@ -188,6 +189,12 @@ def remove(request,*args,**kwargs):
 @login_required()
 def show(request):
     return render(request,'ecommerce/show-cart.html')
+@login_required()
+def direct_order(request,*args,**kwargs):
+    cart = Cart(request.session)
+    product = Product.objects.get(id=kwargs['pk'])
+    cart.add(product, price=product.product_price)
+    return HttpResponseRedirect('/addAddress')
 
 
 def change_quantity(request,*args,**kwargs):
@@ -205,3 +212,88 @@ def change_quantity(request,*args,**kwargs):
 
     else:
         return render(request,'ecommerce/show-cart.html')
+from .models import Address
+from .forms import AddAddressForm
+from random import randint
+from twilio.rest import Client
+class AddAddress(CreateView):
+    form_class =AddAddressForm
+
+    template_name = 'ecommerce/addAddress.html'
+
+    success_url = '/entercode'
+
+    def send_sms_verification(self):
+        number = randint(100000,999999)
+        account_sid = 'AC062178d3463fafaf0a8b544ae9601c19'
+        auth_token = 'b433c64321419877897401b57a6a5632'
+        client = Client(account_sid, auth_token)
+        client.messages.create(from_='+12568278181', to=["+919408595308"], body=number)
+        send_mail(
+            'Successfully Subscribed',
+            'Thank you Your order has been placed.',
+            'dheeraja123456@gmail.com',
+            [self.request.user.email],
+        )
+
+        return number
+
+    def form_valid(self, form):
+        """
+        If the form is valid, save the associated model.
+        """
+        self.object = form.save(commit=False)
+        self.object.user = MyUser.objects.get(email=self.request.user)
+        code = self.send_sms_verification()
+        self.request.session['cody'] = code
+        try:
+            self.object.save()
+        except:
+            return render(self.request,'ecommerce/addAddress.html',{'message':'already exist','form':form})
+
+        return HttpResponseRedirect(self.get_success_url())
+from .models import Orders
+@login_required()
+def codeView(request):
+    return render(request,'ecommerce/entercode.html')
+
+@login_required()
+def checkCode(request):
+
+    if request.method == 'POST':
+
+        code_enter = int(request.POST['code'])
+        code = request.session['cody']
+        if code_enter == code:
+            # for product_ordered in
+            product_added_to_cart = Cart(request.session)
+            print(request.user.email)
+            for product,i in zip(product_added_to_cart.items,product_added_to_cart.products):
+                order = Orders.objects.create(
+                    user = request.user,
+                    address = Address.objects.first(),
+                    product_ordered = Product.objects.get(id=i.id),
+                    product_quantity = product.quantity,
+                    order_place_date = timezone.now(),
+                    is_complete = True,
+                )
+                order.save()
+                product_quantity_change=Product.objects.get(id=i.id)
+                product_quantity_change.product_quantity = product_quantity_change.product_quantity - product.quantity
+                product_quantity_change.save()
+                product_added_to_cart.remove(product)
+
+            account_sid = 'AC062178d3463fafaf0a8b544ae9601c19'
+            auth_token = 'b433c64321419877897401b57a6a5632'
+            client = Client(account_sid, auth_token)
+            client.messages.create(from_='+12568278181', to=["+919408595308"], body="Your Order has been placed")
+            send_mail(
+                'Successfully Subscribed',
+                'Thank you Your order has been placed.',
+                'dheeraja123456@gmail.com',
+                [request.user.email],
+            )
+            return HttpResponse("Your Order has been Placed")
+
+        else:
+            return HttpResponse("Wrong Code")

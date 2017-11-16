@@ -5,13 +5,13 @@
     <title>Title</title>
 </head>
 <body>
-<a href="#">Place your order</a>
+<a href="{% url 'ecommerce:add_address' %}">Place your order</a>
 
 
 
 {% load carton_tags %}
 {% get_cart as cart %}
-
+{% if cart.items  %}
 {% for item in cart.items %}
     {{ item.product.name }}
     {{ item.quantity }}
@@ -28,6 +28,10 @@
 {% for product in cart.products %}
     {{ product.product_name }}
     {{ product.product_quantity }}
+    {{ product.id }}
 {% endfor %}
+{% else %}
+    You have not added any product yet
+{% endif %}
 </body>
 </html>

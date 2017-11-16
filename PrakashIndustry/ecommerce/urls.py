@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from .views import signup,afterLogin,Login,home,Logout,AddSubscriptionUser,CategoryList,\
-                    Product_list_Category,ProductDetails,review,add,show,remove,change_quantity
+                    Product_list_Category,ProductDetails,review,add,show,remove,change_quantity,checkCode,AddAddress,codeView,direct_order
 app_name = 'ecommerce'
 urlpatterns = [
     url(r'^$',AddSubscriptionUser.as_view(),name='home'),
@@ -14,9 +14,13 @@ urlpatterns = [
     url(r'^productdetail(?P<slug>[\w-]+)$',ProductDetails.as_view(),name='product_detail'),
     url(r'^postreview(?P<pk>[\w-]+)$',review,name="product_review"),
     url(r'^add/(?P<pk>[\w-]+)$',add, name='shopping-cart-add'),
+    url(r'^directorder/(?P<pk>[\w-]+)$',direct_order, name='direct_order'),
     url(r'^remove/(?P<pk>[\w-]+)$',remove, name='shopping-cart-remove'),
     url(r'^show/$',show, name='shopping-cart-show'),
     url(r'^changeQuantity/(?P<pk>[\w-]+)$',change_quantity, name='shopping-cart-change-quantity'),
+    url(r'^addAddress/$',AddAddress.as_view(), name='add_address'),
+    url(r'^entercode/$',codeView, name='enter_code'),
+    url(r'^placeorder/$',checkCode, name='place_order'),
 
 ]
 from django.conf import settings

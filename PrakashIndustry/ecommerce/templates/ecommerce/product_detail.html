@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
+{% load carton_tags %}
+{% get_cart as cart %}
 <html>
 <head>
 	<title>Prakash Industries</title>
@@ -124,11 +126,17 @@ new WOW().init();
                 {% for star in product.get_product_rating|floatformat:"0" %}
             <span class="glyphicon glyphicon-star" aria-hidden="true" style="color: brown;"></span>
             {% endfor %}
-            <span style="color: gray;">{{ product.get_product_total_rating.1 }} reviews</span>
+            <span style="color: gray;">{{ product.get_product_total_rating.1 }} reviews </span>
           </p>
           <h3 class="text-left">
             <i class="fa fa-inr" aria-hidden="true"></i> {{ product.product_price }} /-
           </h3>
+          {% if product.product_quantity > 0 %}
+              {{ product.product_quantity }}
+
+              {% else %}
+              Not Available
+          {% endif %}
           <p class="text-left review" style="color:gray;">
             {#              TODO add short description to model#}
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -136,7 +144,7 @@ new WOW().init();
           <p class="text-left" style="padding-top: 3%;">
            <a href="{% url 'ecommerce:shopping-cart-add' pk=product.id%}"><span class="cart-des">add cart</span></a>
 
-            <a href="#"><span class="cart-ord">order now</span></a>
+            <a href="{% url 'ecommerce:direct_order' pk=product.id%}"><span class="cart-ord">order now</span></a>
             <span class=" glyphicon glyphicon-heart wish" aria-hidden="true"></span>
           </p>
 
@@ -193,13 +201,15 @@ new WOW().init();
                         {% for reviews in product.product_reviewed.all %}
                           <div class="content-review">
                           <p class="text-left" style="display: flex;">
-                            <span style="padding-left: 5px;">{{ reviews.user.first_name }} {{ reviews.user.last_name }}
+                            <span style="padding-left: 5px;">{{ reviews.user.first_name }} {{ reviews.user.last_name }} &nbsp;&nbsp;&nbsp; {% if reviews.rating %}{{ reviews.rating }}<span class="glyphicon glyphicon-star" aria-hidden="true" style="color: brown;"></span>{% endif %}
                               <br>
                               <span style="color: gray; font-size: 12px;">
                                 {{ reviews.review_date }}<br>
                               </span>
                             </span>
                           </p>
+
+
                           <p class="text-left">
 
                               {{ reviews.review }}

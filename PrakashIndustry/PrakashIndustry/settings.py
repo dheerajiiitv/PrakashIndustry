@@ -48,7 +48,7 @@ INSTALLED_APPS = [
 
 
 ]
-
+SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -79,7 +79,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'PrakashIndustry.wsgi.application'
 
-
+SESSION_SAVE_EVERY_REQUEST = True
+SESSION_COOKIE_AGE = 3200
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 

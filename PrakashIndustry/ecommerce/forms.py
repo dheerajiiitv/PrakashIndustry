@@ -83,3 +83,11 @@ class AddSubscribedUserForm(forms.ModelForm):
 #     class Meta:
 #         model=CustomerReview
 #         fields = ('')
+
+
+from .models import Address
+class AddAddressForm(forms.ModelForm):
+
+    class Meta:
+        model = Address
+        exclude = ('user',)
