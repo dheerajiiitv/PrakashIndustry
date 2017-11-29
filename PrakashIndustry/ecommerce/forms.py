@@ -90,4 +90,4 @@ class AddAddressForm(forms.ModelForm):
 
     class Meta:
         model = Address
-        exclude = ('user',)
+        exclude = ('user','to_deliver')

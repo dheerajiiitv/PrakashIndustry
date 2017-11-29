@@ -8,6 +8,8 @@ from django.contrib.auth import authenticate,login,logout
 
 from django.contrib.auth.decorators import login_required
 from django.views.generic import CreateView,UpdateView,ListView,DetailView,TemplateView
+from django.shortcuts import get_object_or_404
+from django.contrib.auth.mixins import LoginRequiredMixin
 def home(request):
     return render(request,'ecommerce/index.html')
 
@@ -118,6 +120,7 @@ class ProductDetails(DetailView):
 
 
 from django.utils import timezone
+@login_required()
 def review(request,*args,**kwargs):
     if request.method == 'POST':
         review_text = request.POST['msg']
@@ -173,9 +176,10 @@ from carton.cart import Cart
 def add(request,*args,**kwargs):
     cart = Cart(request.session)
     product = Product.objects.get(id=kwargs['pk'])
+    slug = product.slug
     cart.add(product,price=product.product_price)
 
-    return HttpResponse("Product Added")
+    return HttpResponseRedirect(reverse('ecommerce:product_detail',kwargs={'slug':slug}))
 
 
 @login_required()
@@ -183,12 +187,14 @@ def remove(request,*args,**kwargs):
     cart = Cart(request.session)
     product = Product.objects.get(id=kwargs['pk'])
     cart.remove(product)
-    return HttpResponse("Product Removed")
+    return render(request,'ecommerce/show-cart.html',{'message':'Product removed succesfully'})
 
 
 @login_required()
 def show(request):
     return render(request,'ecommerce/show-cart.html')
+
+
 @login_required()
 def direct_order(request,*args,**kwargs):
     cart = Cart(request.session)
@@ -196,7 +202,7 @@ def direct_order(request,*args,**kwargs):
     cart.add(product, price=product.product_price)
     return HttpResponseRedirect('/addAddress')
 
-
+@login_required()
 def change_quantity(request,*args,**kwargs):
     cart = Cart(request.session)
     product = Product.objects.get(id=kwargs['pk'])
@@ -205,9 +211,9 @@ def change_quantity(request,*args,**kwargs):
         quantiy =  int(request.POST['remove_quantity'])
         if quantiy > 0 and quantiy < product.product_quantity:
             cart.set_quantity(product,quantiy)
-            return HttpResponse("Changed Quantity succesfully")
+            return render(request,'ecommerce/show-cart.html',{'message':'Quantity changed succesfully'})
         else:
-            return HttpResponse('Please Enter Valid quantity')
+            return render(request,'ecommerce/show-cart.html',{'message':'Please Enter Valid quantity'})
 
 
     else:
@@ -231,7 +237,7 @@ class AddAddress(CreateView):
         client.messages.create(from_='+12568278181', to=["+919408595308"], body=number)
         send_mail(
             'Successfully Subscribed',
-            'Thank you Your order has been placed.',
+            str(number),
             'dheeraja123456@gmail.com',
             [self.request.user.email],
         )
@@ -243,7 +249,7 @@ class AddAddress(CreateView):
         If the form is valid, save the associated model.
         """
         self.object = form.save(commit=False)
-        self.object.user = MyUser.objects.get(email=self.request.user)
+        self.object.user = get_object_or_404(MyUser,email=self.request.user)
         code = self.send_sms_verification()
         self.request.session['cody'] = code
         try:
@@ -272,13 +278,13 @@ def checkCode(request):
                 order = Orders.objects.create(
                     user = request.user,
                     address = Address.objects.first(),
-                    product_ordered = Product.objects.get(id=i.id),
+                    product_ordered = get_object_or_404(Product,id=i.id),
                     product_quantity = product.quantity,
                     order_place_date = timezone.now(),
                     is_complete = True,
                 )
                 order.save()
-                product_quantity_change=Product.objects.get(id=i.id)
+                product_quantity_change=get_object_or_404(Product,id=i.id)
                 product_quantity_change.product_quantity = product_quantity_change.product_quantity - product.quantity
                 product_quantity_change.save()
                 product_added_to_cart.remove(product)
@@ -293,7 +299,36 @@ def checkCode(request):
                 'dheeraja123456@gmail.com',
                 [request.user.email],
             )
-            return HttpResponse("Your Order has been Placed")
+            return render(request,'ecommerce/placeyourorder.html',{'message':'Order Placed Successfully'})
 
         else:
-            return HttpResponse("Wrong Code")
+            return render(request,'ecommerce/entercode.html',{'message':'Wrong code'})
+
+
+from django.shortcuts import get_list_or_404
+class MyOrder(ListView):
+    model = Orders
+    template_name = 'ecommerce/myorders.html'
+
+    def get_queryset(self):
+        order =  get_list_or_404(Orders,user=self.request.user)
+        return order
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(MyOrder, self).get_context_data(**kwargs)
+        context['orders_lists'] = self.get_queryset()
+
+        return context
+
+
+# from django.contrib.auth.views import password_reset
+# def password_reset(request, is_admin_site=False,
+#             template_name='registration/password_reset_form.html',
+#             email_template_name='registration/password_reset_email.html',
+#             password_reset_form=PasswordResetForm,
+#             token_generator=default_token_generator,
+#             post_reset_redirect=None):
+#             pass
+
+class GetQuoted(TemplateView):
+    template_name = 'ecommerce/get_quoted.html'

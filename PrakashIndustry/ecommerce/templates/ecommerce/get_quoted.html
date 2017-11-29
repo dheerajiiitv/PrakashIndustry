@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<head>
+	<title>Prakash Industries</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="{% static 'ecommerce/css/main.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'ecommerce/css/get-quoted/quoted/normalize.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'ecommerce/get-quoted/quoted/demo.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'ecommerce/get-quoted/quoted/component.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'ecommerce/css/get-quoted/custom.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'ecommerce/css/get-quoted/default.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'ecommerce/css/get-quoted/customer.css' %}">
+
+
+
+<script defer src="js/default.js"></script>
+ <script defer src="js/customer.js"></script>
+	<script src="js/wow.js"></script>
+<script type="text/javascript">
+new WOW().init();
+</script>
+</head>
+<body>
+<svg class="hidden">
+      <defs>
+
+
+        <symbol id="icon-pin" width="28.6px" height="25.7px" viewBox="0 0 28.6 25.7">
+          <title>pin</title>
+          <path class="st0" d="M12.7,14.5c0-0.5-0.2-0.9-0.5-1.2c-0.4-0.4-0.8-0.5-1.4-0.5H4.7v-0.6v-0.3v-0.6c0-1.7,0.5-3.2,1.5-4.5
+
+          C7.1,5.8,8.1,5.3,9.2,5c0.8-0.2,1.2-0.6,1.2-1.4V2.7V2.3V1.4c0-0.4-0.2-0.7-0.5-1.1C9.6,0.1,9.2-0.1,8.7,0c-2.4,0.4-4.4,1.5-6,3.4
+
+          C0.9,5.7,0,8.2,0,10.9l0,0.7l0.1,5.9v0.6v0.3V19v4V24c0,0.6,0.2,1,0.5,1.4c0.4,0.4,0.8,0.5,1.2,0.4h9.1c1.2,0,1.8-0.6,1.9-1.8
+
+          l0-0.8c0,0,0,0,0-0.1L12.7,14.5z"/>
+
+          <path class="st0" d="M28.5,14.5c0-0.5-0.2-0.9-0.5-1.2c-0.4-0.4-0.8-0.5-1.4-0.5h-6.1v-0.6v-0.3v-0.6C20.5,9.5,21,8,22,6.8
+
+          c0.9-0.9,1.8-1.5,2.9-1.8c0.8-0.2,1.2-0.6,1.2-1.4V2.7V2.3V1.4c0-0.4-0.2-0.7-0.5-1.1c-0.3-0.3-0.7-0.4-1.2-0.4
+
+          c-2.4,0.4-4.4,1.5-6,3.4c-1.8,2.2-2.7,4.7-2.7,7.5l0,0.7l0.1,5.9v0.6v0.3V19v4V24c0,0.6,0.2,1,0.5,1.4c0.4,0.4,0.8,0.5,1.2,0.4h9.1
+
+          c1.2,0,1.8-0.6,1.9-1.8l0-0.8c0,0,0,0,0-0.1L28.5,14.5z"/>
+
+        </symbol>
+
+      </defs>
+    </svg>
+<input type="checkbox" id="navcheck" role="button" title="menu">
+<label for="navcheck" aria-hidden="true" title="menu">
+	<span class="burger">
+		<span class="bar">
+			<span class="visuallyhidden">Menu</span>
+		</span>
+	</span>
+</label>
+<nav id="menu">
+    {% if user.is_authenticated %}
+        <a style=" font-size: 35px;">Welcome {{ user.first_name }} {{ user.last_name }}</a>
+        {% else %}
+        <a>Welcome Guest</a>
+    {% endif %}
+    <hr>
+	<a href="{% url 'ecommerce:home' %}">Home</a>
+	<a href="{% url 'ecommerce:category' %}">Feature Product</a>
+	<a href="#">Contact Us</a>
+    <a href="{% url 'ecommerce:get-quoted' %}">Place Quotation</a>
+    {% if user.is_authenticated %}
+        <a href="{% url 'ecommerce:my_order' %}">My Orders</a>
+        <a href="{% url 'ecommerce:shopping-cart-show' %}">Show Cart</a>
+        <a href="{% url 'ecommerce:logout' %}">Logout</a>
+
+        {% else %}
+         <a href="{% url 'ecommerce:login' %}">Sign In</a>
+    <a href="{% url 'ecommerce:register'%}">Sign Up</a>
+
+    {% endif %}
+
+
+</nav>
+
+
+<section id="banner-quoted">
+	<div class="container-fluid" class="no-padding">
+		<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+			<img src="image/logo.png" class="img-fluid logo" style="width: 30%; margin: 0 auto;">
+			<h1 class="text-center banner-heading">
+				Get Quoted
+			</h1>
+		</div>
+	</div>
+</section>
+<div id="demo-content">
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 col-md-12">
+      <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+        <div class="demo_form">
+           <form id="get-form2">
+              <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 myform-group2" style="margin-top: 110px; margin-bottom: 15px;">
+                  <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                    <label for="completeName" class="form_name2" style="width: 100px;">
+                    <div class="abstrict2">*</div>FIRST NAME</label><br>
+                    <input id="firstName" name="firstName" maxlength="200" class="form_name2_field"  type="text" required="">
+                  </div>
+                  <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                    <label for="completeName" class="form_name2" style="width: 100px;">
+                    <div class="abstrict2">*</div>Last NAME</label><br>
+                    <input id="lastName" name="lastName" maxlength="200" class="form_name2_field"  type="text" required="">
+                  </div>
+                </div>
+                 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 myform-group2">
+                  <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="margin-bottom: 15px;">
+                    <label for="completeName" class="form_name2" style="width: 100px;">
+                    <div class="abstrict2">*</div>email</label><br>
+                    <input id="email" name="email" maxlength="200" class="form_name2_field" style="width: 150px;" type="text" required="">
+                  </div>
+                  <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="margin-bottom: 15px;">
+                    <label for="completeName" class="form_name2" style="width: 100px;">
+                    <div class="abstrict2">*</div>phone number</label><br>
+                    <input id="phoneNumber" name="phoneNumber" maxlength="200" class="form_name2_field" style="width: 150px;" type="text" pattern="[1-9]{1}[0-9]{9}" title="Enter 10 digit mobile number" required="">
+                  </div>
+                </div>
+                 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 myform-group2">
+{#                  <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="margin-bottom: 15px;">#}
+{#                    <label for="completeName" class="form_name2" style="width: 100px;">#}
+{#                    <div class="abstrict2">*</div>Product Name</label><br>#}
+{#                    <input id="companyName" name="companyName" maxlength="200" class="form_name2_field" style="width: 150px;" type="text" required="">#}
+{#                  </div>#}
+{#                  <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="margin-bottom: 15px;">#}
+{#                    <label for="completeName" class="form_name2" style="width: 100px;">#}
+{#                    <div class="abstrict2">*</div>Product Quantity</label><br>#}
+{#                    <input id="companyName" name="companyName" maxlength="200" class="form_name2_field" style="width: 150px;" type="number" required="">#}
+{#                  </div>#}
+                   <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="margin-bottom: 15px;">
+                    <label for="completeName" class="form_name2" style="width: 100px;">
+                    <div class="abstrict2">*</div>Expected Date of Delivery</label><br>
+                    <input id="companyName" name="companyName" maxlength="200" class="form_name2_field" style="width: 150px;" type="date" required="">
+                  </div>
+                  <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="margin-bottom: 15px;">
+                    <label for="completeName" class="form_name2" style="width: 100px;">
+                    <div class="abstrict2">*</div>Address</label><br>
+                    <!-- <input id="Designation" name="Designation" maxlength="200" class="form_name2_field" style="width: 150px;" type="text" required=""> -->
+                    <textarea class="form_name2_field" type="textarea" id="Designation" placeholder="Message" maxlength="140" rows="7"></textarea>
+                  </div>
+                </div>
+                <div class="col-md-12 col-lg-12 col-xs-12 myform-group-button">
+                  <button class="form-started-button2" type="submit">submit</button>
+                </div>
+
+          </form>
+        </div>
+        </div>
+<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+<div class="customer">
+  <h1 class="customer_title">
+  Millions of Product Option
+    <hr>
+  </h1>
+  <div class='IconsContainer'></div>
+</div>
+  </div>
+<section id="testimonial-demo">
+   <div class="container-fluid">
+     <div class="row">
+       <div class="col-md-12 col-xs-12">
+
+       </div>
+
+     </div>
+   </div>
+</section>
+<section class="section section--nav" id="Totit">
+   <h1 class="testi_title">
+    What our customers are saying
+
+  </h1>
+        <div class="col-md-2 col-lg-2 col-sm-2">
+        <nav class="nav nav--totit">
+          <button class="nav__item show-demo1 nav__item--current" aria-label="Item 1" target="1"><svg class="nav__icon"><use xlink:href="#icon-pin"></use></svg></button>
+          <button class="nav__item show-demo" aria-label="Item 2" target="2"><svg class="nav__icon"><use xlink:href="#icon-pin"></use></svg></button>
+          <button class="nav__item show-demo" aria-label="Item 3" target="3"><svg class="nav__icon"><use xlink:href="#icon-pin"></use></svg></button>
+          <button class="nav__item show-demo" aria-label="Item 4" target="4"><svg class="nav__icon"><use xlink:href="#icon-pin"></use></svg></button>
+          <button class="nav__item show-demo" aria-label="Item 5" target="5"><svg class="nav__icon"><use xlink:href="#icon-pin"></use></svg></button>
+          <button class="nav__item show-demo" aria-label="Item 6" target="6"><svg class="nav__icon"><use xlink:href="#icon-pin"></use></svg></button>
+          <button class="nav__item show-demo" aria-label="Item 7" target="7"><svg class="nav__icon"><use xlink:href="#icon-pin"></use></svg></button>
+        </nav>
+        </div>
+        <!-- Mockup slider for decorative purpose only -->
+        <div class="myslider-demo1 tgdiv1" id="div1">
+         <div class="col-md-6 col-lg-6 col-sm-6">
+          <div class="test-heading-pic">
+            <div class="testi-client-pic">
+              <img src="{% static 'ecommerce/image/person-1.jpg' %}" class="img-responsive our_client">
+            </div>
+            <div class="testi-info">
+              <h3>ANURAG BATRA</h3>
+              <p>Chairman and Editor in chief at Businessworld</p>
+            </div>
+          </div>
+          <div class="client-view">
+             <p class="testimonial-description-demo">It’s an awesome product which is tailored according to the needs of our industry. Our team has used this product with great degree of satisfaction and I must say we would like to use it again & again. Wish you luck..!!</p>
+          </div>
+        </div>
+        </div>
+
+
+        <div class="myslider-demo tgdiv" id="div2">
+         <div class="col-md-6 col-lg-6 col-sm-6">
+          <div class="test-heading-pic">
+            <div class="testi-client-pic">
+              <img src="{% static 'ecommerce/image/person-1.jpg' %}" class="img-responsive our_client">
+            </div>
+            <div class="testi-info">
+              <h3>NEHA SETH</h3>
+              <p>President at TiE Ahmedabad</p>
+            </div>
+          </div>
+          <div class="client-view">
+             <p class="testimonial-description-demo">Hubilo is an excellent platform for event management and communication. We were able to broadcast messages regarding the conference in just minutes and get analytics on how many users read their emails! We could quickly make changes and enhancements and it was almost like magic!</p>
+          </div>
+        </div>
+      </div>
+      <div class="myslider-demo tgdiv" id="div3">
+         <div class="col-md-6 col-lg-6 col-sm-6">
+          <div class="test-heading-pic">
+            <div class="testi-client-pic">
+              <img src="{% static 'ecommerce/image/person-1.jpg' %}" class="img-responsive our_client">
+            </div>
+            <div class="testi-info">
+              <h3>SANDHAYA DHIR</h3>
+              <p>Sr Manager-Events at Businessworld</p>
+            </div>
+          </div>
+          <div class="client-view">
+             <p class="testimonial-description-demo">A Very Big Thank you to HUBILO for all their assistance and support.This was the first time we worked with them and the calibre of heir work and their willingness to do whatever it takes to get the results required is why we will be going back to them.</p>
+          </div>
+        </div>
+      </div>
+      <div class="myslider-demo tgdiv" id="div4">
+         <div class="col-md-6 col-lg-6 col-sm-6">
+          <div class="test-heading-pic">
+            <div class="testi-client-pic">
+              <img src="{% static 'ecommerce/image/person-1.jpg' %}" class="img-responsive our_client">
+            </div>
+            <div class="testi-info">
+              <h3>ANKIT MACCHAR</h3>
+              <p>Manager - Ecosystem Development at icreate</p>
+            </div>
+          </div>
+          <div class="client-view">
+             <p class="testimonial-description-demo">We have used Hubilo multiple times, the platform is fully built in itself, a big time saver, tailored to specific needs, easy to use, a great platform for networking and effortless coordination to do a mega event. All this adds up to a very comprehensive platform.</p>
+          </div>
+        </div>
+      </div>
+      <div class="myslider-demo tgdiv" id="div5">
+         <div class="col-md-6 col-lg-6 col-sm-6">
+          <div class="test-heading-pic">
+            <div class="testi-client-pic">
+              <img src="{% static 'ecommerce/image/person-1.jpg' %}"class="img-responsive our_client">
+            </div>
+            <div class="testi-info">
+              <h3>PARAM SHAH</h3>
+              <p>Head at FICCI - Gujarat State Council</p>
+            </div>
+          </div>
+          <div class="client-view">
+             <p class="testimonial-description-demo">The amount of time Hubilo saves is immense: Event website, Event app, emailers, social media posts - everything generated in 1 hour</p>
+          </div>
+        </div>
+      </div>
+      <div class="myslider-demo tgdiv" id="div6">
+         <div class="col-md-6 col-lg-6 col-sm-6">
+          <div class="test-heading-pic">
+            <div class="testi-client-pic">
+              <img src="{% static 'ecommerce/image/person-1.jpg' %}" class="img-responsive our_client">
+            </div>
+            <div class="testi-info">
+              <h3>KIRAN MAVERICK</h3>
+              <p>Founder @ The August Fest</p>
+            </div>
+          </div>
+          <div class="client-view">
+             <p class="testimonial-description-demo">We produced some large festivals and smaller conferences across several countries and have used various even-tech solutions over the last few years. Hubilo is one of the best we've come across and we were totally blown away by the product features and specially the committed team behind for their on the fly support 24/7. </p>
+          </div>
+        </div>
+      </div>
+      <div class="myslider-demo tgdiv" id="div7">
+         <div class="col-md-6 col-lg-6 col-sm-6">
+          <div class="test-heading-pic">
+            <div class="testi-client-pic">
+              <img src="{% static 'ecommerce/image/person-1.jpg' %}" class="img-responsive our_client">
+            </div>
+            <div class="testi-info">
+              <h3>RITAM BHATNAGAR</h3>
+              <p>Founder at Freeway and Wwhere</p>
+            </div>
+          </div>
+          <div class="client-view">
+             <p class="testimonial-description-demo">What if I told you your event's online presence will take only few minutes instead of days? We are using hubilo to reach to our community of 25000 people, and it has been the most smoothest transition I've witnessed of long.</p>
+          </div>
+        </div>
+      </div>
+
+      </section>
+
+
+  <section id="footer">
+  	<div class="container-fluid">
+  		<div class="row">
+  			<div class="col-md-12 col-lg-12 ">
+  				<h4 class="text-center" style="color: brown; font-size: 28px;">Prakash Industries</h4>
+  				<p class="text-center" style="color: brown;">
+  				<img src="image/facebook.png">
+  				<img src="image/twitter.png">
+  				<img src="image/instagram.png">
+  			</p>
+  			<p class="text-center" style="color:brown;">
+  				IIIT Vadodara@2017. Privacy Policy
+  			</p>
+  			</div>
+  		</div>
+  	</div>
+  </section>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+
+
+<script src="{% static 'ecommerce/js/demo-js/clipboard.min.js' %}"></script>
+	<script src="{% static 'ecommerce/js/demo-js/main.js' %}"></script>
+<script src="{% static 'ecommerce/js/demo-js/resource_main.js' %}"></script>
+
+</body>
+</html>

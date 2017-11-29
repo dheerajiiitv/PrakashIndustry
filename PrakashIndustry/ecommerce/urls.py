@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from .views import signup,afterLogin,Login,home,Logout,AddSubscriptionUser,CategoryList,\
-                    Product_list_Category,ProductDetails,review,add,show,remove,change_quantity,checkCode,AddAddress,codeView,direct_order
+                    Product_list_Category,ProductDetails,review,add,show,remove,change_quantity,checkCode,AddAddress,\
+                        codeView,direct_order,GetQuoted,MyOrder
 app_name = 'ecommerce'
 urlpatterns = [
     url(r'^$',AddSubscriptionUser.as_view(),name='home'),
@@ -21,6 +22,8 @@ urlpatterns = [
     url(r'^addAddress/$',AddAddress.as_view(), name='add_address'),
     url(r'^entercode/$',codeView, name='enter_code'),
     url(r'^placeorder/$',checkCode, name='place_order'),
+    url(r'^getquoted/$',GetQuoted.as_view(),name='get-quoted'),
+    url(r'^myorders/$',MyOrder.as_view(),name='my_order')
 
 ]
 from django.conf import settings

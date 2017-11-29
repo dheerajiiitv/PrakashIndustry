@@ -1,0 +1,442 @@
+
+
+.common-ProductLockup .icon,
+.common-ProductLockupBack .icon {
+    width: 64px;
+    height: 64px;
+    overflow: hidden;
+    border-radius: 50%;
+    box-shadow: 0 7px 14px rgba(50, 50, 93, .1), 0 3px 6px rgba(0, 0, 0, .08);
+    margin-right: 20px
+}
+
+@media (min-width:670px) {
+    .common-ProductLockup .icon,
+    .common-ProductLockupBack .icon {
+        width: 72px;
+        height: 72px
+    }
+}
+
+.common-ProductLockupBack {
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    font-size: 20px;
+    transition: color .1s
+}
+
+.common-ProductLockupBack:before {
+    font: normal 48px/24px StripeIcons;
+    content: '\279D';
+    transform: scaleX(-1);
+    width: 36px;
+    text-align: right;
+    position: relative;
+    top: -6px;
+    transition: color .1s
+}
+
+.common-ProductLockupBack .icon {
+    width: 48px;
+    height: 48px
+}
+
+.common-ProductLockupBack .hover-fillDark,
+.common-ProductLockupBack .hover-fillLight {
+    transition: fill .1s
+}
+
+.common-ProductLockupBack .hover-strokeDark,
+.common-ProductLockupBack .hover-strokeLight {
+    transition: stroke .1s
+}
+
+.common-ProductLockupBack:hover .hover-fillLight {
+    fill: #8898aa
+}
+
+.common-ProductLockupBack:hover .hover-fillDark {
+    fill: #32325d
+}
+
+.common-ProductLockupBack:hover .hover-strokeLight {
+    stroke: #8898aa
+}
+
+.common-ProductLockupBack:hover .hover-strokeDark {
+    stroke: #32325d
+}
+
+.common-Link {
+    color: #6772e5;
+    font-weight: 500;
+    transition: color .1s ease;
+    cursor: pointer
+}
+
+.common-Link:hover {
+    color: #32325d
+}
+
+.common-Link:active {
+    color: #000
+}
+
+
+.globalNav ul {
+    padding: 0;
+    margin: 0
+}
+
+.globalNav li {
+    list-style: none
+}
+
+.globalNav a {
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    color: #6772e5;
+    transition: color .1s
+}
+
+.globalNav a:hover {
+    color: #32325d
+}
+
+.globalNav>.container-lg {
+    padding: 0
+}
+
+.globalNav .navRoot {
+    position: relative
+}
+
+.globalNav .navSection.logo {
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+.globalNav .navSection.primary,
+.globalNav .navSection.secondary {
+    display: none
+}
+
+@media (min-width:670px) {
+    .globalNav .navSection.primary,
+    .globalNav .navSection.secondary {
+        display: -ms-flexbox;
+        display: flex
+    }
+}
+
+.globalNav .navSection.primary {
+    -ms-flex-pack: center;
+    justify-content: center
+}
+
+.globalNav .navSection.secondary {
+    position: absolute;
+    top: 0;
+    right: 0
+}
+
+.globalNav .navSection.mobile {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: end;
+    justify-content: flex-end
+}
+
+@media (min-width:670px) {
+    .globalNav .navSection.mobile {
+        display: none
+    }
+}
+
+.globalNav.compact .navRoot {
+    display: -ms-flexbox;
+    display: flex
+}
+
+.globalNav.compact .navSection.logo {
+    position: static;
+    -ms-flex-positive: 1;
+    flex-grow: 1
+}
+
+.globalNav.compact .navSection.secondary {
+    position: static
+}
+
+.globalNav .rootLink {
+    display: inline-block;
+    height: 50px;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-size: 17px;
+    line-height: 50px;
+    font-weight: 400;
+    margin: 0;
+    padding: 0 10px
+}
+
+@media (min-width:670px) {
+    .globalNav .rootLink {
+        padding: 0 calc(10px + (100vw - 670px) * .040541)
+    }
+}
+
+@media (min-width:1040px) {
+    .globalNav .rootLink {
+        padding: 0 25px
+    }
+}
+
+.globalNav .navSection.logo .rootLink {
+    padding-left: 20px!important
+}
+
+.globalNav .navSection.secondary .rootLink:last-child {
+    padding-right: 20px!important
+}
+
+.globalNav .navSection.primary .rootLink {
+    font-weight: 500
+}
+
+.globalNav .colorize {
+    color: #6772e5;
+    transition: color .1s ease
+}
+
+.globalNav .colorize.active,
+.globalNav .colorize:hover {
+    color: #32325d
+}
+
+.globalNav .hasDropdown {
+    cursor: default
+}
+
+.globalNav .item-home h1 {
+    line-height: 50px;
+    font-size: 20px;
+    margin: 0;
+    color: inherit
+}
+
+.globalNav .item-home svg {
+    vertical-align: -5px
+}
+
+.globalNav .item-home svg path {
+    fill: currentColor
+}
+
+.globalNav .item-dashboard:after {
+    font: normal 16px StripeIcons;
+    content: '\279E';
+    padding-left: 1px
+}
+
+.globalNav .dropdownRoot {
+    position: absolute;
+    z-index: 1000;
+    left: 0;
+    right: 0;
+    top: 50px;
+    pointer-events: none;
+    transform: rotateX(-15deg);
+    transform-origin: 50% -50px;
+    opacity: 0;
+    will-change: transform, opacity;
+    transition-property: transform, opacity;
+    transition-duration: .25s;
+    display: none
+}
+
+@media (min-width:670px) {
+    .globalNav .dropdownRoot {
+        display: block
+    }
+}
+
+.globalNav.dropdownActive .dropdownRoot {
+    opacity: 1;
+    pointer-events: auto;
+    transform: none
+}
+
+.globalNav .dropdownBackground {
+    background: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 50px 100px rgba(50, 50, 93, .1), 0 15px 35px rgba(50, 50, 93, .15), 0 5px 15px rgba(0, 0, 0, .1);
+    width: 380px;
+    height: 400px;
+    transform: translateX(0);
+    transform-origin: 0 0
+}
+
+.globalNav .alternateBackground,
+.globalNav .dropdownBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    will-change: transform;
+    transition-property: transform;
+    transition-duration: .25s
+}
+
+.globalNav .alternateBackground {
+    right: 0;
+    height: 1000px;
+    background: #f6f9fc
+}
+
+.globalNav .dropdownArrow {
+    position: absolute;
+    top: -6px;
+    left: 0;
+    margin: 0 0 0 -6px;
+    width: 12px;
+    height: 12px;
+    transform: rotate(45deg);
+    border-radius: 4px 0 0 0;
+    background: #fff;
+    box-shadow: -3px -3px 5px rgba(82, 95, 127, .04);
+    will-change: transform;
+    transition-property: transform;
+    transition-duration: .25s
+}
+
+.globalNav .dropdownContainer {
+    overflow: hidden;
+    width: 500px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(0);
+    will-change: transform, width, height;
+    transition-property: transform, width, height;
+    transition-duration: .25s
+}
+
+.globalNav .dropdownSection {
+    opacity: 0;
+    pointer-events: none;
+    will-change: transform, opacity;
+    transition-property: transform, opacity;
+    transition-duration: .25s;
+    background: red
+}
+
+.globalNav .dropdownSection.active {
+    opacity: 1;
+    transform: translateX(0)
+}
+
+.globalNav .dropdownSection.left {
+    transform: translateX(-150px)
+}
+
+.globalNav .dropdownSection.right {
+    transform: translateX(150px)
+}
+
+.globalNav.dropdownActive .dropdownSection.active {
+    pointer-events: auto
+}
+
+.globalNav.noDropdownTransition .alternateBackground,
+.globalNav.noDropdownTransition .dropdownArrow,
+.globalNav.noDropdownTransition .dropdownBackground,
+.globalNav.noDropdownTransition .dropdownContainer,
+.globalNav.noDropdownTransition .dropdownSection {
+    transition: none
+}
+
+.globalNav .dropdownContent {
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+.globalNav .linkGroup {
+    padding: 20px 35px
+}
+
+.globalNav .linkContainer {
+    display: block;
+    padding: 9px 0
+}
+
+.globalNav .linkTitle {
+    margin: 0;
+    color: #6772e5;
+    font-size: 16px;
+    line-height: 22px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: .025em
+}
+
+.globalNav .linkSub {
+    font-size: 15px;
+    line-height: 22px;
+    color: #6b7c93;
+    margin: 5px 0 0;
+    display: block
+}
+
+.globalNav .linkSub,
+.globalNav .linkTitle {
+    transition: color .1s
+}
+
+.globalNav .linkContainer:hover .linkTitle,
+.globalNav .linkTitle:hover {
+    color: #32325d
+}
+
+.globalNav .linkContainer:hover .linkSub {
+    color: #424770
+}
+
+.globalNav .hover-fillDark,
+.globalNav .hover-fillLight {
+    transition: fill .1s
+}
+
+.globalNav .hover-strokeDark,
+.globalNav .hover-strokeLight {
+    transition: stroke .1s
+}
+
+.globalNav .linkContainer:hover .hover-fillLight {
+    fill: #8898aa
+}
+
+.globalNav .linkContainer:hover .hover-fillDark {
+    fill: #32325d
+}
+
+.globalNav .linkContainer:hover .hover-strokeLight {
+    stroke: #8898aa
+}
+
+.globalNav .linkContainer:hover .hover-strokeDark {
+    stroke: #32325d
+}
+
+.globalNav .linkIcon {
+    white-space: nowrap
+}
+
+.globalNav .linkIcon svg {
+    margin: 0 12px -3px -1px
+}

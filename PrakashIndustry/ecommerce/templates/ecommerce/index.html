@@ -1,0 +1,308 @@
+{% extends 'ecommerce/base.html' %}
+{% block body_block %}
+    {% load static %}
+<section id="banner">
+	<div class="container-fluid" class="no-padding">
+		<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+			<img src="{% static 'ecommerce/image/logo.png' %}" class="img-fluid logo" style="width: 30%; margin: 0 auto;">
+			<h1 class="text-center banner-heading">
+
+				We turn your Furniture<br>
+				<strong>Fantasiest to Reality!</strong>
+			</h1>
+		</div>
+	</div>
+</section>
+<section id="about-us">
+	<div class="container-fluid" class="no-padding">
+		<div class="row">
+			<div class="col-lg-12 col-xs-12" style="margin: auto; text-align: center;">
+				<h1 class="text-center about-heading">
+					Story About Us
+					<hr>
+				</h1>
+				<p class="text-center about-des" >
+				Since 1988 our small but dedicated team of professional woodworkers, carpenters, designers and furniture manufacturers was joining forces for crafting functional and visually flawless furniture pieces. Be it a kitchen furniture, bedroom furniture or just some garden chairs &amp; tables – altogether we’ve got more than 1000 orders completed by now. The length of our combined experience and all of the skills of our craftsmen put together result in our pieces featuring high durability and tasteful visual appeal. Be sure to drop us a letter and order yourself a piece too!
+			    </p>
+			</div>
+			
+				<!-- <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 about-img">
+					<img src="image/cat-1.jpg" class="img-fluid">
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 about-img">
+					<img src="image/cat-1.jpg" class="img-fluid">
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 about-img">
+					<img src="image/cat-1.jpg" class="img-fluid"> -->
+				
+			</div>
+			<div class="row about-thumb" >
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 about-img">
+					<a href="#" class="cat-link"><img src="{% static 'ecommerce/image/cat-1.jpg' %}" class="img-fluid"></a>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 about-img">
+					<img src="{% static 'ecommerce/image/cat-1.jpg' %}" class="img-fluid">
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 about-img">
+					<img src="{% static 'ecommerce/image/cat-1.jpg' %}" class="img-fluid">
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="services">
+	<div class="container-fluid no-padding">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<h1 class="text-center service-heading">
+					Services We Provide!
+					<hr>
+				</h1>
+			<p class="text-center service-des">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+			</p>
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 service-content">
+				<div class="col-sm-4 col-md-4 col-lg-4 col-xs-12 service1">
+					<div class="service-img">
+						<a href="chair.html" class="service-link"><img src="{% static 'ecommerce/image/chair.png' %}"></a>
+					</div>
+					<div class="service-img-des">
+						<a href="chair.html" class="service-link">
+							<h4 style="color: #fff;">
+							Chair
+							</h4>
+						</a>
+						<p class="text-center content-des">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+						</p>	
+					</div>
+				</div>
+				<div class="col-sm-4 col-md-4 col-lg-4 col-xs-12 service1">
+					<div class="service-img">
+						<a href="#" class="service-link"><img src="{% static 'ecommerce/image/table.png' %}"></a>
+					</div>
+					<div class="service-img-des">
+						<h4 style="color: #fff;">
+							<a href="#" class="service-link">Table</a>
+						</h4>
+						<p class="text-center content-des">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+						</p>	
+					</div>
+				</div>
+				<div class="col-sm-4 col-md-4 col-lg-4 col-xs-12 service1">
+					<div class="service-img">
+						<a href="#" class="service-link"><img src="{% static 'ecommerce/image/kitchen.png' %}"></a>
+					</div>
+					<div class="service-img-des">
+						<h4 style="color: #fff;">
+							<a href="#" class="service-link">Kitchen</a>
+						</h4>
+						<p class="text-center content-des">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+						</p>	
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 service-content">
+				<div class="col-sm-4 col-md-4 col-lg-4 col-xs-12 service1">
+					<div class="service-img">
+						<a href="#" class="service-link"><img src="{% static 'ecommerce/image/chair.png' %}"></a>
+					</div>
+					<div class="service-img-des">
+						<h4 style="color: #fff;">
+							<a href="#" class="service-link">Chair</a>
+						</h4>
+						<p class="text-center content-des">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+						</p>	
+					</div>
+				</div>
+				<div class="col-sm-4 col-md-4 col-lg-4 col-xs-12 service1">
+					<div class="service-img">
+						<a href="#" class="service-link"><img src="{% static 'ecommerce/image/table.png' %}"></a>
+					</div>
+					<div class="service-img-des">
+						<h4 style="color: #fff;">
+							<a href="#" class="service-link">Table</a>
+						</h4>
+						<p class="text-center content-des">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+						</p>	
+					</div>
+				</div>
+				<div class="col-sm-4 col-md-4 col-lg-4 col-xs-12 service1">
+					<div class="service-img">
+						<a href="#" class="service-link"><img src="{% static 'ecommerce/image/kitchen.png' %}"></a>
+					</div>
+					<div class="service-img-des">
+						<h4 style="color: #fff;">
+							<a href="#" class="service-link">Kitchen</a>
+						</h4>
+						<p class="text-center content-des">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+						</p>	
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="testimonial">
+	<div class="main wow slideInleft animated" data-wow-duration="900ms" data-wow-delay="300ms" id="quote">
+		<div class="container-fluid no-padding">
+			<div class="row">
+				<div class="owl-carousel owl-theme" id="owl-slider">
+					<div class="item">
+						<div style="width: 70%;padding-left: 8%;padding-top: 0%;margin-top: 8%;float: left;">
+							<p>
+								<span style="color: orange; ">
+									<img src="{% static 'ecommerce/image/quote.png' %}" class="img-fluid" style="width: 50px;">
+								</span><br>
+								Nam pellentesque fringilla faucibus. Aliquam tortor ex, egestas porta eget, pretium at lorem.Nam pellentesque fringilla faucibus. Aliquam tortor ex, egestas porta eget, pretium at lorem.Nam pellentesque fringilla faucibus. Aliquam tortor ex, egestas porta eget, pretium at lorem.Nam pellentesque fringilla faucibus. Aliquam tortor ex, egestas porta eget, pretium at lorem<br>
+								<span style="color: orange; font-size: 2.5vw;">~</span><span class="name" style="font-size: 100%;">JESSICA GREEN</span>
+							</p>
+						</div>
+						<div style="width: 25%; float: right; padding-top: 5%;">
+						<p class="text-center ">
+						<img src="{% static 'ecommerce/image/cathy.jpg' %}" class="img-fluid" style="border-radius: 100%; width:250px; margin: 0 auto;" >
+						</div>
+					</div>
+					<div class="item">
+						<div style="width: 70%;padding-left: 8%;padding-top: 0%;margin-top: 8%;float: left;">
+							<p>
+								<span style="color: orange; ">
+									<img src="{% static 'ecommerce/image/quote.png' %}" class="img-fluid" style="width: 50px;">
+								</span><br>
+								Nam pellentesque fringilla faucibus. Aliquam tortor ex, egestas porta eget, pretium at lorem.Nam pellentesque fringilla faucibus. Aliquam tortor ex, egestas porta eget, pretium at lorem.Nam pellentesque fringilla faucibus. Aliquam tortor ex, egestas porta eget, pretium at lorem.Nam pellentesque fringilla faucibus. Aliquam tortor ex, egestas porta eget, pretium at lorem<br>
+								<span style="color: orange; font-size: 2.5vw;">~</span><span class="name" style="font-size: 100%;">JESSICA GREEN</span>
+							</p>
+						</div>
+						<div style="width: 25%; float: right; padding-top: 5%;">
+						<p class="text-center ">
+						<img src="{% static 'ecommerce/image/cute.jpg' %}" class="img-fluid" style="border-radius: 100%; width:250px; margin: 0 auto;" >
+						</div>
+					</div>
+					<div class="item">
+						<div style="width: 70%;padding-left: 8%;padding-top: 0%;margin-top: 8%;float: left;">
+							<p>
+								<span style="color: orange; ">
+									<img src="{% static 'ecommerce/image/quote.png' %}" class="img-fluid" style="width: 50px;">
+								</span><br>
+								Nam pellentesque fringilla faucibus. Aliquam tortor ex, egestas porta eget, pretium at lorem.Nam pellentesque fringilla faucibus. Aliquam tortor ex, egestas porta eget, pretium at lorem.Nam pellentesque fringilla faucibus. Aliquam tortor ex, egestas porta eget, pretium at lorem.Nam pellentesque fringilla faucibus. Aliquam tortor ex, egestas porta eget, pretium at lorem<br>
+								<span style="color: orange; font-size: 2.5vw;">~</span><span class="name" style="font-size: 100%;">JESSICA GREEN</span>
+							</p>
+						</div>
+						<div style="width: 25%; float: right; padding-top: 5%;">
+						<p class="text-center ">
+						<img src="{% static 'ecommerce/image/cathy.jpg' %}" class="img-fluid" style="border-radius: 100%; width:250px; margin: 0 auto;" >
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="offer">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 col-md-offset-3 col-lg-offset-3" style="margin: 0 auto; text-align: center; padding-top: 5%;">
+					<span class="number">23000+</span><br>
+					<span class="hapcus">Happy Customer</span>
+					<img src="{% static 'ecommerce/image/happy.png' %}" class="img-fluid" style="width: 150px;">
+				</div>
+                <form method="post">
+				<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 col-md-offset-3 col-lg-offset-3" style="margin: 0 auto;">
+					<div class="start-email input-group">
+
+                            {% csrf_token %}
+                            {{ form.non_field_errors }}
+                            <div class="fieldWrapper">
+                                {% if form.email.errors %}
+                                    <script>
+                                        alert("You are already Subscribed");
+                                    </script>
+                                {% endif %}
+                                {{ form.email }}
+                            </div>
+
+                            <button type="submit" class="started-button" id="buto">Subscribed Now</button>
+                      </div>
+				</div>
+                    </form>
+				
+			</div>	
+		</div>
+	</div>
+</section>
+<section id="offer-slider">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <!-- <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol> -->
+        <div class="carousel-inner" role="listbox">
+          <!-- Slide One - Set the background image for this slide in the line below -->
+          <div class="carousel-item active" style="background-image: url({% static 'ecommerce/image/offer1.jpg' %})">
+            <div class="carousel-caption d-none d-md-block">
+              <a href="{% url 'ecommerce:category' %}" class="shop"><h3 class="shop-now">Shop Now</h3></a>
+              
+            </div>
+          </div>
+          <!-- Slide Two - Set the background image for this slide in the line below -->
+          <div class="carousel-item" style="background-image: url({% static 'ecommerce/image/offer2.png' %})">
+            <div class="carousel-caption d-none d-md-block">
+              <a href="{% url 'ecommerce:category' %}" class="shop"><h3 class="shop-now">Shop Now</h3></a>
+              
+            </div>
+          </div>
+          <!-- Slide Three - Set the background image for this slide in the line below -->
+          <div class="carousel-item" style="background-image: url({% static 'ecommerce/image/offer3.png' %})">
+            <div class="carousel-caption d-none d-md-block">
+              <a href="{% url 'ecommerce:category' %}" class="shop"><h3 class="shop-now">Shop Now</h3></a>
+             
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+  </section>
+  <section id="new-arrival">
+  	<div class="container-fluid">
+  		<div class="row">
+  			<div class="col-lg-12 col-md-12 col-xs-12">
+  				<h1 class="text-center about-heading">
+					New Arrivals!
+					<hr>
+				</h1>
+			</div>
+				<div class="col-lg-12 col-md-12 col-xs-12" style="display: flex; padding-bottom: 50px;">
+					<div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
+						<img src="{% static 'ecommerce/image/slider1.jpg' %}" class="img-fluid">
+					</div>
+					<div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
+						<img src="{% static 'ecommerce/image/slider2.jpg' %}" class="img-fluid">
+					</div>
+					<div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
+						<img src="{% static 'ecommerce/image/service5.jpg' %}" class="img-fluid">
+					</div>
+				</div>
+				<div class="col-lg-12 col-md-12 col-xs-12 text-center">
+  					<button class="btn btn-primary mybtn">View Product</button>
+			    </div>
+  			</div>
+  		</div>
+  	</div>
+  </section>
+
+{% endblock %}

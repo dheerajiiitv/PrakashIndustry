@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>Prakash Industries</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="{% static 'ecommerce/css/main.css' %}">
+	<style type="text/css">
+	.carousel-control {
+    position: absolute;
+    top: 25%;
+    bottom: -8px;
+    left: -30px;
+    width: 0%;
+    font-size: 65px;
+    color:black;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0,0,0,.6);
+    background-color: rgba(0,0,0,0);
+    filter: alpha(opacity=50);
+    opacity: .5;
+}
+</style>
+	<script src="{% static 'ecommerce/js/wow.js' %}"></script>
+<script type="text/javascript">
+new WOW().init();
+</script>
+</head>
+<body>
+
+<input type="checkbox" id="navcheck" role="button" title="menu">
+<label for="navcheck" aria-hidden="true" title="menu">
+	<span class="burger">
+		<span class="bar">
+			<span class="visuallyhidden">Menu</span>
+		</span>
+	</span>
+</label>
+<nav id="menu">
+    {% if user.is_authenticated %}
+        <a style=" font-size: 35px;">Welcome {{ user.first_name }} {{ user.last_name }}</a>
+        {% else %}
+        <a>Welcome Guest</a>
+    {% endif %}
+    <hr>
+	<a href="{% url 'ecommerce:home' %}">Home</a>
+	<a href="{% url 'ecommerce:category' %}">Feature Product</a>
+	<a href="#">Contact Us</a>
+    <a href="{% url 'ecommerce:get-quoted' %}">Place Quotation</a>
+    {% if user.is_authenticated %}
+        <a href="{% url 'ecommerce:my_order' %}">My Orders</a>
+        <a href="{% url 'ecommerce:shopping-cart-show' %}">Show Cart</a>
+        <a href="{% url 'ecommerce:logout' %}">Logout</a>
+
+        {% else %}
+         <a href="{% url 'ecommerce:login' %}">Sign In</a>
+    <a href="{% url 'ecommerce:register'%}">Sign Up</a>
+
+    {% endif %}
+
+
+</nav>
+
+
+
+<section id="banner-category">
+	<div class="container-fluid" class="no-padding">
+		<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+			<img src="{% static 'ecommerce/image/logo.png' %}" class="img-fluid logo" style="width: 30%; margin: 0 auto;">
+			<h1 class="text-center banner-heading">
+				Product Categories
+			</h1>
+		</div>
+	</div>
+</section>
+<section>
+{% for category in categories %}
+<div class="container">
+  <div class="row">
+      <a href="{% url 'ecommerce:product_list' pk=category.id%}"> <h2 style="color: #392b19;font-size: 48px;">{{ category.category_name }} </h2></a>
+  </div>
+
+  <div class='row'>
+    <div class='col-md-12'>
+      <div class="carousel slide media-carousel" id="media{{ forloop.counter0 }}">
+        <div class="carousel-inner">
+    {% for product in category.category.all %}
+        {% if forloop.counter0|divisibleby:3  %}
+        <div class="item catslider {% if forloop.counter0 is 0 %}active{% endif %}">
+
+            <div class="row">
+                {% endif %}
+
+                <div class="col-md-4">
+                <a class="thumbnail" href="{% url 'ecommerce:product_list' pk=category.id%}"><img alt="" src="{{ product.product.all.0.image.url    }}" class="img-fluid" style="width: 400px; height: 200px;"></a>
+                </div>
+        {% if forloop.counter0 is not 0 %}
+            {% if forloop.counter0|divisibleby:2 or forloop.last  %}
+                </div>
+              </div>
+            {% endif %}
+        {% endif %}
+        {% endfor %}
+
+
+        </div>
+        </div>
+        <a data-slide="prev" href="#media{{ forloop.counter0 }}" class="left carousel-control"><</a>
+        <a data-slide="next" href="#media{{ forloop.counter0 }}" class="right carousel-control">></a>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endfor %}
+</section>
+  <section id="Query">
+  	<div class="container-fluid">
+  		<div class="row">
+  			<div class="col-lg-12 col-md-12 col-xs-12">
+  				<h1 class="text-center about-heading">
+					<span style="color: #fff;">Leave Us A Message!</span>
+					<hr>
+				</h1>
+  			</div>
+  			<div class="col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 col-xs-12">
+  				<div class="form-area">
+        <form role="form">
+        <br style="clear:both">
+
+    				<div class="form-group">
+						<input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="mobile" name="mobile" placeholder="Mobile Number" required>
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
+					</div>
+                    <div class="form-group">
+                    <textarea class="form-control" type="textarea" id="message" placeholder="Message" maxlength="140" rows="7"></textarea>
+
+                    </div>
+
+        <button type="button" id="submit" name="submit" class="btn btn-primary querybutton">Submit Form</button>
+        </form>
+    </div>
+  			</div>
+  		</div>
+  	</div>
+  </section>
+  <section id="footer">
+  	<div class="container-fluid">
+  		<div class="row">
+  			<div class="col-md-12 col-lg-12 ">
+  				<h4 class="text-center" style="color: brown;">Prakash Industries</h4>
+  				<p class="text-center" style="color: brown;">
+  				<img src="{% static 'ecommerce/image/facebook.png' %}">
+  				<img src="{% static 'ecommerce/image/twitter.png' %}">
+  				<img src="{% static 'ecommerce/image/instagram.png' %}">
+  			</p>
+  			<p class="text-center" style="color:brown;">
+  				IIIT Vadodara@2017. Privacy Policy
+  			</p>
+  			</div>
+  		</div>
+  	</div>
+  </section>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="{% static 'ecommerce/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'ecommerce/js/jquer.js' %}"></script>
+<script src="{% static 'ecommerce/js/jquery.min.js' %}"></script>
+ <script src="{% static 'ecommerce/js/bootstrap.bundle.min.js' %}"></script>
+
+
+ <script type="text/javascript">
+
+     {% for i in categories %}
+         $(document).ready(function () {
+             $('#media{{ forloop.counter0 }}').carousel({
+                 pause: true,
+                 interval: false,
+             });
+         });
+     {% endfor %}
+
+
+
+</script>
+</body>
+</html>

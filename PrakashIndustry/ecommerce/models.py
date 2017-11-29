@@ -198,7 +198,7 @@ class ProductImages(models.Model):
 
 class Address(models.Model):
     user = models.ForeignKey(MyUser,on_delete=models.CASCADE,blank=True,null=True)
-    mobile_no = models.IntegerField(default=0)
+    mobile_no = models.PositiveIntegerField()
     block_no = models.CharField(max_length=10)
     street_name = models.CharField(max_length=50)
     area = models.CharField(max_length=20)

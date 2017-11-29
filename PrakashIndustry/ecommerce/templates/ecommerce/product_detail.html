@@ -50,22 +50,31 @@ new WOW().init();
 	</span>
 </label>
 <nav id="menu">
-	<a href="index.html">Home</a>
-	<a href="about.html">About Us</a>
-	<a href="{% url 'ecommerce:category' %}">Feature Product</a>
-	<a href="shop.html">Shop</a>
-	<a href="contact.html">Contact Us</a>
-
     {% if user.is_authenticated %}
-        <a href="{% url 'ecommerce:logout' %}">Logout</a>
+        <a style=" font-size: 25px;">Welcome {{ user.first_name }} {{ user.last_name }}</a>
+        {% else %}
+        <a>Welcome Guest</a>
+    {% endif %}
+    <hr>
+	<a href="{% url 'ecommerce:home' %}">Home</a>
+	<a href="{% url 'ecommerce:category' %}">Feature Product</a>
+	<a href="#">Contact Us</a>
+    <a href="{% url 'ecommerce:get-quoted' %}">Place Quotation</a>
+    {% if user.is_authenticated %}
+        <a href="{% url 'ecommerce:my_order' %}">My Orders</a>
         <a href="{% url 'ecommerce:shopping-cart-show' %}">Show Cart</a>
+        <a href="{% url 'ecommerce:logout' %}">Logout</a>
+
         {% else %}
          <a href="{% url 'ecommerce:login' %}">Sign In</a>
     <a href="{% url 'ecommerce:register'%}">Sign Up</a>
+
     {% endif %}
 
 
 </nav>
+
+
 <section id="banner-productdetail">
 	<div class="container-fluid" class="no-padding">
 		<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
@@ -182,10 +191,10 @@ new WOW().init();
                          <form method="post" id="review_form" action="{% url 'ecommerce:product_review' pk=product.id%}">
                              {% csrf_token %}
                             <span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
-                            <input id="msg" type="text" class="form-control" name="msg" placeholder="Write your review here..">
-                             <input type="radio" value="0" id="rate" name="rating" style="padding-left: 2px;">0
-                             <input type="radio" value="1" id="rate" name="rating" style="padding-left: 2px;">1
-                             <input type="radio" value="2" id="rate" name="rating" style="padding-left: 2px;">2
+                            <input id="msg" type="text" class="form-control" name="msg" placeholder="Write your review here.." required>
+                             <input type="radio" value="0" id="rate" name="rating" style="padding-left: 2px;" >0
+                             <input type="radio" value="1" id="rate" name="rating" style="padding-left: 2px;" >1
+                             <input type="radio" value="2" id="rate" name="rating" style="padding-left: 2px;" >2
                              <input type="radio" value="3" id="rate" name="rating" style="padding-left: 2px;">3
                              <input type="radio" value="4" id="rate" name="rating" style="padding-left: 2px;">4
                              <input type="radio" value="5" id="rate" name="rating" style="padding-left: 2px;">5
@@ -244,7 +253,7 @@ new WOW().init();
             <div class="row">
         {% endif %}
               <div class="col-md-4">
-                <a class="thumbnail" href="#"><img alt="" src="{{product.product.all.0.image.url }}" class="img-fluid" style="height: 200px; width: 400px;"></a>
+                <a class="thumbnail" href="{% url 'ecommerce:product_detail' slug=product.slug %}"><img alt="" src="{{product.product.all.0.image.url }}" class="img-fluid" style="height: 200px; width: 400px;"></a>
               {{ product.product_name }}
               </div>
 
@@ -308,15 +317,15 @@ new WOW().init();
   		</div>
   	</div>
   </section>
-  <section id="footer">
+ <section id="footer">
   	<div class="container-fluid">
   		<div class="row">
   			<div class="col-md-12 col-lg-12 ">
-  				<h4 class="text-center" style="color: brown; font-size: 28px;">Prakash Industries</h4>
+  				<h4 class="text-center" style="color: brown;">Prakash Industries</h4>
   				<p class="text-center" style="color: brown;">
-  				<img src="image/facebook.png">
-  				<img src="image/twitter.png">
-  				<img src="image/instagram.png">
+  				<img src="{% static 'ecommerce/image/facebook.png' %}">
+  				<img src="{% static 'ecommerce/image/twitter.png' %}">
+  				<img src="{% static 'ecommerce/image/instagram.png' %}">
   			</p>
   			<p class="text-center" style="color:brown;">
   				IIIT Vadodara@2017. Privacy Policy
