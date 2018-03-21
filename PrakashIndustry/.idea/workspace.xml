@@ -239,6 +239,16 @@
               <item name="PrakashIndustry" type="b2602c69:ProjectViewProjectNode" />
               <item name="PrakashIndustry" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="PrakashIndustry" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PrakashIndustry" type="462c0819:PsiDirectoryNode" />
+              <item name="admin_interface" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PrakashIndustry" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PrakashIndustry" type="462c0819:PsiDirectoryNode" />
+              <item name="ecommerce" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -430,7 +440,14 @@
       <option name="project" value="LOCAL" />
       <updated>1510779175841</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="ne">
+      <created>1521650617948</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1521650617948</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TodoView">
@@ -520,7 +537,8 @@
     <MESSAGE value="Product Detail Page without review section done" />
     <MESSAGE value="Product Detail Page complete" />
     <MESSAGE value="Password Validation added and Cart option complete" />
-    <option name="LAST_COMMIT_MESSAGE" value="Password Validation added and Cart option complete" />
+    <MESSAGE value="ne" />
+    <option name="LAST_COMMIT_MESSAGE" value="ne" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
