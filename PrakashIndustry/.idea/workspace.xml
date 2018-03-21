@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8480e0fe-a654-4ef4-a635-6e2c1d861b76" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/PrakashIndustry.iml" afterPath="$PROJECT_DIR$/../.idea/PrakashIndustry.iml" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/PrakashIndustry.iml" afterPath="$PROJECT_DIR$/.idea/PrakashIndustry.iml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,7 +41,7 @@
       <file leaf-file-name="myorders.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ecommerce/templates/ecommerce/myorders.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
+            <state relative-caret-position="-198">
               <caret line="4" column="16" lean-forward="false" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
               <folding />
             </state>
@@ -241,27 +238,6 @@
             <path>
               <item name="PrakashIndustry" type="b2602c69:ProjectViewProjectNode" />
               <item name="PrakashIndustry" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PrakashIndustry" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PrakashIndustry" type="462c0819:PsiDirectoryNode" />
-              <item name="admin_interface" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PrakashIndustry" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PrakashIndustry" type="462c0819:PsiDirectoryNode" />
-              <item name="PrakashIndustry" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PrakashIndustry" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PrakashIndustry" type="462c0819:PsiDirectoryNode" />
-              <item name="static_cdn" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PrakashIndustry" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PrakashIndustry" type="462c0819:PsiDirectoryNode" />
-              <item name="static_cdn" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -932,7 +908,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ecommerce/templates/ecommerce/myorders.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
+        <state relative-caret-position="-198">
           <caret line="4" column="16" lean-forward="false" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
           <folding />
         </state>
